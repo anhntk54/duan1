@@ -4143,3 +4143,176 @@ Stack trace:
 #7 {main}
 REQUEST_URI=/thachdo/backend/
 ---
+2014/11/09 15:56:25 [error] [php] Undefined variable: model (/Applications/XAMPP/xamppfiles/htdocs/thachdo/backend/protected/modules/TaiKhoan/views/login/index.php:28)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CController.php(869): LoginController->renderFile()
+#1 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CController.php(782): LoginController->renderPartial()
+#2 /Applications/XAMPP/xamppfiles/htdocs/thachdo/backend/protected/modules/TaiKhoan/controllers/LoginController.php(7): LoginController->render()
+#3 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/actions/CInlineAction.php(49): LoginController->actionIndex()
+#4 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CController.php(308): CInlineAction->runWithParams()
+#5 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CController.php(286): LoginController->runAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CController.php(265): LoginController->runActionWithFilters()
+#7 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CWebApplication.php(282): LoginController->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#9 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /Applications/XAMPP/xamppfiles/htdocs/thachdo/backend/index.php(16): CWebApplication->run()
+REQUEST_URI=/thachdo/backend/index.php
+in /Applications/XAMPP/xamppfiles/htdocs/thachdo/backend/protected/modules/TaiKhoan/views/login/index.php (28)
+in /Applications/XAMPP/xamppfiles/htdocs/thachdo/backend/protected/modules/TaiKhoan/controllers/LoginController.php (7)
+in /Applications/XAMPP/xamppfiles/htdocs/thachdo/backend/index.php (16)
+2014/11/09 15:57:57 [error] [php] Undefined variable: model (/Applications/XAMPP/xamppfiles/htdocs/thachdo/backend/protected/modules/TaiKhoan/views/login/index.php:28)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CController.php(869): LoginController->renderFile()
+#1 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CController.php(782): LoginController->renderPartial()
+#2 /Applications/XAMPP/xamppfiles/htdocs/thachdo/backend/protected/modules/TaiKhoan/controllers/LoginController.php(7): LoginController->render()
+#3 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/actions/CInlineAction.php(49): LoginController->actionIndex()
+#4 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CController.php(308): CInlineAction->runWithParams()
+#5 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CController.php(286): LoginController->runAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CController.php(265): LoginController->runActionWithFilters()
+#7 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CWebApplication.php(282): LoginController->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#9 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /Applications/XAMPP/xamppfiles/htdocs/thachdo/backend/index.php(16): CWebApplication->run()
+REQUEST_URI=/thachdo/backend/index.php
+in /Applications/XAMPP/xamppfiles/htdocs/thachdo/backend/protected/modules/TaiKhoan/views/login/index.php (28)
+in /Applications/XAMPP/xamppfiles/htdocs/thachdo/backend/protected/modules/TaiKhoan/controllers/LoginController.php (7)
+in /Applications/XAMPP/xamppfiles/htdocs/thachdo/backend/index.php (16)
+2014/11/09 15:58:22 [error] [exception.CException] exception 'CException' with message 'LoginController cannot find the requested view "login".' in /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CController.php:878
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CController.php(782): CController->renderPartial('login', Array, true)
+#1 /Applications/XAMPP/xamppfiles/htdocs/thachdo/backend/protected/modules/TaiKhoan/controllers/LoginController.php(25): CController->render('login', Array)
+#2 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/actions/CInlineAction.php(49): LoginController->actionIndex()
+#3 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CWebApplication.php(282): CController->run('')
+#7 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#8 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#9 /Applications/XAMPP/xamppfiles/htdocs/thachdo/backend/index.php(16): CApplication->run()
+#10 {main}
+REQUEST_URI=/thachdo/backend/index.php
+HTTP_REFERER=http://localhost/thachdo/backend/index.php?r=gii/module/index
+---
+2014/11/09 16:38:22 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `tbl_admin` (`username`, `password`) VALUES (:yp0, :yp1).
+in /Applications/XAMPP/xamppfiles/htdocs/thachdo/backend/protected/modules/TaiKhoan/controllers/AdminController.php (74)
+in /Applications/XAMPP/xamppfiles/htdocs/thachdo/backend/index.php (16)
+2014/11/09 16:38:23 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `tbl_admin` (`username`, `password`) VALUES (:yp0, :yp1)' in /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/db/ar/CActiveRecord.php(1077): CDbCommand->execute()
+#1 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/db/ar/CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/thachdo/backend/protected/modules/TaiKhoan/controllers/AdminController.php(74): CActiveRecord->save()
+#3 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/actions/CInlineAction.php(49): AdminController->actionCreate()
+#4 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CController.php(291): CFilterChain->run()
+#11 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CWebApplication.php(282): CController->run('create')
+#13 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CWebApplication.php(141): CWebApplication->runController('TaiKhoan/admin/...')
+#14 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /Applications/XAMPP/xamppfiles/htdocs/thachdo/backend/index.php(16): CApplication->run()
+#16 {main}
+REQUEST_URI=/thachdo/backend/index.php?r=TaiKhoan/admin/create
+HTTP_REFERER=http://localhost/thachdo/backend/index.php?r=TaiKhoan/admin/create
+---
+2014/11/09 16:44:04 [error] [exception.CException] exception 'CException' with message 'Property "Admin.matkhau" is not defined.' in /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/base/CComponent.php:130
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/db/ar/CActiveRecord.php(145): CComponent->__get('matkhau')
+#1 /Applications/XAMPP/xamppfiles/htdocs/thachdo/backend/protected/components/UserIdentity.php(25): CActiveRecord->__get('matkhau')
+#2 /Applications/XAMPP/xamppfiles/htdocs/thachdo/backend/protected/models/LoginForm.php(52): UserIdentity->authenticate()
+#3 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/validators/CInlineValidator.php(42): LoginForm->authenticate('password', Array)
+#4 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/validators/CValidator.php(213): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#5 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/base/CModel.php(159): CValidator->validate(Object(LoginForm), NULL)
+#6 /Applications/XAMPP/xamppfiles/htdocs/thachdo/backend/protected/modules/TaiKhoan/controllers/LoginController.php(21): CModel->validate()
+#7 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/actions/CInlineAction.php(49): LoginController->actionIndex()
+#8 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#10 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CWebApplication.php(282): CController->run('')
+#12 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CWebApplication.php(141): CWebApplication->runController('TaiKhoan/Login')
+#13 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#14 /Applications/XAMPP/xamppfiles/htdocs/thachdo/backend/index.php(16): CApplication->run()
+#15 {main}
+REQUEST_URI=/thachdo/backend/index.php?r=TaiKhoan/Login
+HTTP_REFERER=http://localhost/thachdo/backend/index.php?r=TaiKhoan/Login
+---
+2014/11/09 16:48:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "TaiKhoan/site/index".' in /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CWebApplication.php(141): CWebApplication->runController('TaiKhoan/site/i...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Applications/XAMPP/xamppfiles/htdocs/thachdo/backend/index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/thachdo/backend/index.php?r=TaiKhoan/site/index
+---
+2014/11/09 16:51:17 [error] [exception.CException] exception 'CException' with message 'Alias "ext.GLGridView" is invalid. Make sure it points to an existing PHP file and the file is readable.' in /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/YiiBase.php:322
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CWidgetFactory.php(146): YiiBase::import('ext.GLGridView', true)
+#1 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CBaseController.php(146): CWidgetFactory->createWidget(Object(DefaultController), 'ext.GLGridView', Array)
+#2 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CBaseController.php(172): CBaseController->createWidget('ext.GLGridView', Array)
+#3 /Applications/XAMPP/xamppfiles/htdocs/thachdo/backend/protected/modules/backup/views/default/_list.php(52): CBaseController->widget('ext.GLGridView', Array)
+#4 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CBaseController.php(126): require('/Applications/X...')
+#5 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CBaseController.php(95): CBaseController->renderInternal('/Applications/X...', Array, true)
+#6 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CController.php(869): CBaseController->renderFile('/Applications/X...', Array, true)
+#7 /Applications/XAMPP/xamppfiles/htdocs/thachdo/backend/protected/modules/backup/views/default/index.php(21): CController->renderPartial('_list', Array)
+#8 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CBaseController.php(126): require('/Applications/X...')
+#9 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CBaseController.php(95): CBaseController->renderInternal('/Applications/X...', Array, true)
+#10 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CController.php(869): CBaseController->renderFile('/Applications/X...', Array, true)
+#11 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
+#12 /Applications/XAMPP/xamppfiles/htdocs/thachdo/backend/protected/modules/backup/controllers/DefaultController.php(310): CController->render('index', Array)
+#13 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/actions/CInlineAction.php(49): DefaultController->actionIndex()
+#14 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#15 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#16 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#17 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#18 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#19 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#20 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CController.php(291): CFilterChain->run()
+#21 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CWebApplication.php(282): CController->run('')
+#23 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CWebApplication.php(141): CWebApplication->runController('backup/')
+#24 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#25 /Applications/XAMPP/xamppfiles/htdocs/thachdo/backend/index.php(16): CApplication->run()
+#26 {main}
+REQUEST_URI=/thachdo/backend/index.php?r=backup/
+---
+2014/11/09 16:53:14 [error] [php] fopen(/Applications/XAMPP/xamppfiles/htdocs/thachdo/backend/protected/../_backup/db_backup_2014.11.09_16.53.14.sql): failed to open stream: Permission denied (/Applications/XAMPP/xamppfiles/htdocs/thachdo/backend/protected/modules/backup/controllers/DefaultController.php:167)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/actions/CInlineAction.php(49): DefaultController->actionCreate()
+#1 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/filters/CFilterChain.php(133): DefaultController->runAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#4 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#5 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/filters/CInlineFilter.php(58): DefaultController->filterAccessControl()
+#6 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#7 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CController.php(291): CFilterChain->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CController.php(265): DefaultController->runActionWithFilters()
+#9 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CWebApplication.php(282): DefaultController->run()
+#10 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /Applications/XAMPP/xamppfiles/htdocs/thachdo/backend/index.php(16): CWebApplication->run()
+REQUEST_URI=/thachdo/backend/index.php?r=backup/default/create
+in /Applications/XAMPP/xamppfiles/htdocs/thachdo/backend/protected/modules/backup/controllers/DefaultController.php (167)
+in /Applications/XAMPP/xamppfiles/htdocs/thachdo/backend/protected/modules/backup/controllers/DefaultController.php (210)
+in /Applications/XAMPP/xamppfiles/htdocs/thachdo/backend/index.php (16)
+2014/11/09 16:55:01 [error] [php] fopen(/Applications/XAMPP/xamppfiles/htdocs/thachdo/backend/protected/../backup/db_backup_2014.11.09_16.55.01.sql): failed to open stream: Permission denied (/Applications/XAMPP/xamppfiles/htdocs/thachdo/backend/protected/modules/backup/controllers/DefaultController.php:167)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/actions/CInlineAction.php(49): DefaultController->actionCreate()
+#1 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/filters/CFilterChain.php(133): DefaultController->runAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#4 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#5 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/filters/CInlineFilter.php(58): DefaultController->filterAccessControl()
+#6 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#7 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CController.php(291): CFilterChain->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CController.php(265): DefaultController->runActionWithFilters()
+#9 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CWebApplication.php(282): DefaultController->run()
+#10 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /Applications/XAMPP/xamppfiles/htdocs/thachdo/backend/index.php(16): CWebApplication->run()
+REQUEST_URI=/thachdo/backend/index.php?r=backup/default/create
+in /Applications/XAMPP/xamppfiles/htdocs/thachdo/backend/protected/modules/backup/controllers/DefaultController.php (167)
+in /Applications/XAMPP/xamppfiles/htdocs/thachdo/backend/protected/modules/backup/controllers/DefaultController.php (210)
+in /Applications/XAMPP/xamppfiles/htdocs/thachdo/backend/index.php (16)

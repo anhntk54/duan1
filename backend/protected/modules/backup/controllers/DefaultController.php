@@ -14,7 +14,7 @@ class DefaultController extends Controller
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	// public $layout='//layouts/column2';
+	public $layout='//layouts/column2';
 
 	/**
 	 * @return array action filters
@@ -35,15 +35,15 @@ class DefaultController extends Controller
 	{
 		return array(
 	 	array('allow',  // allow all users to perform 'index' and 'view' actions
-						'actions'=>array(''),
+						'actions'=>array('create1'),
 						'users'=>array('*'),
 		),
 		array('allow', // allow authenticated user to perform 'create' and 'update' actions
-						'actions'=>array('admin','delete','clean','index','view','create','upload', 'download','restore'),
+						'actions'=>array(),
 						'users'=>array('@'),
 		), 
 		array('allow', // allow admin user to perform 'admin' and 'delete' actions
-						'actions'=>array(''),
+						'actions'=>array('admin','delete','clean','index','view','create','upload', 'download','restore'),
 						'users'=>array('admin'),
 		),
 		array('deny',  // deny all users
@@ -291,7 +291,7 @@ class DefaultController extends Controller
 		if ($list_files )
 		{
 			$list = array_map('basename',$list_files);
-			rsort($list);
+			sort($list);
 
 	
 			foreach ( $list as $id=>$filename )
@@ -300,7 +300,7 @@ class DefaultController extends Controller
 				$columns['id'] = $id;
 				$columns['name'] = basename ( $filename);
 				$columns['size'] = floor(filesize ( $path. $filename)/ 1024) .' KB';
-				$columns['create_time'] = date('H:i d/m/Y', filectime($path .$filename) );
+				$columns['create_time'] = date( DATE_RFC822, filectime($path .$filename) );
 				$dataArray[] = $columns;
 			}
 		}
@@ -343,7 +343,7 @@ class DefaultController extends Controller
 		}
 
 		$this->execSqlFile($sqlFile);
-		$this->render('restore',array('error'=>$message,'file'=>$file));
+		$this->render('restore',array('error'=>$message));
 	}
 
 	public function actionUpload()

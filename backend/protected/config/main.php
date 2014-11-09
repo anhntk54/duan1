@@ -7,7 +7,7 @@ $t = array(
 	// preloading 'log' component
 	'preload'=>array('log'),
 	'timeZone' => 'Asia/Ho_Chi_Minh',
-    // 'defaultController' => 'TaiKhoan/Login',
+    'defaultController' => 'TaiKhoan/Login',
 	// autoloading model and component classes
 	'import'=>array(
 		'application.models.*',
@@ -15,9 +15,8 @@ $t = array(
 	),
 
 	'modules'=>array(
-		"TaiKhoan",
-		'DoiTac',
-		"KhachHang",
+		'CauHoi',
+		'TaiKhoan',
 		"backup",
 	),
 
