@@ -88,6 +88,7 @@ CREATE TABLE IF NOT EXISTS `tbl_level` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `ten` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `tien_toi_thieu` float NOT NULL,
+  `hinh_anh` varchar(250) COLLATE utf32_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
 
@@ -113,6 +114,24 @@ CREATE TABLE IF NOT EXISTS `tbl_log` (
   `hanhdong_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
+
+-- -------------------------------------------
+-- TABLE `tbl_log_naptien`
+-- -------------------------------------------
+DROP TABLE IF EXISTS `tbl_log_naptien`;
+CREATE TABLE IF NOT EXISTS `tbl_log_naptien` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `ngay_tao` datetime DEFAULT NULL,
+  `trang_thai` int(11) DEFAULT NULL,
+  `pin` varchar(200) NOT NULL,
+  `serial` varchar(200) NOT NULL,
+  `os` varchar(12) NOT NULL DEFAULT 'VMS',
+  `tien_gui` int(11) NOT NULL DEFAULT '0',
+  `tien_nhan` int(11) NOT NULL DEFAULT '0',
+  `log` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- -------------------------------------------
 -- TABLE `tbl_log_tien`
@@ -155,6 +174,37 @@ CREATE TABLE IF NOT EXISTS `tbl_profile` (
   `ngay_sinh` varchar(200) COLLATE utf32_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
+
+-- -------------------------------------------
+-- TABLE `tbl_quangcao`
+-- -------------------------------------------
+DROP TABLE IF EXISTS `tbl_quangcao`;
+CREATE TABLE IF NOT EXISTS `tbl_quangcao` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ten` varchar(500) NOT NULL,
+  `hinh_anh` varchar(300) NOT NULL,
+  `loai` int(11) NOT NULL,
+  `kieu_bat` int(11) NOT NULL,
+  `link_den` varchar(255) NOT NULL,
+  `vi_tri` int(11) NOT NULL,
+  `ngay_tao` datetime NOT NULL,
+  `luot_click` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- -------------------------------------------
+-- TABLE `tbl_seo`
+-- -------------------------------------------
+DROP TABLE IF EXISTS `tbl_seo`;
+CREATE TABLE IF NOT EXISTS `tbl_seo` (
+  `id` int(4) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(128) NOT NULL DEFAULT '',
+  `description` varchar(255) DEFAULT NULL,
+  `keywords` varchar(500) DEFAULT NULL,
+  `metarobot` varchar(50) DEFAULT NULL,
+  `create_date` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- -------------------------------------------
 -- TABLE `tbl_tag`
