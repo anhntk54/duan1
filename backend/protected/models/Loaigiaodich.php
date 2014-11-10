@@ -1,26 +1,20 @@
 <?php
 
 /**
- * This is the model class for table "tbl_khieunai".
+ * This is the model class for table "tbl_loaigiaodich".
  *
- * The followings are the available columns in table 'tbl_khieunai':
+ * The followings are the available columns in table 'tbl_loaigiaodich':
  * @property integer $id
- * @property integer $cauhoi_id
- * @property integer $user_id
- * @property string $thoigian_khieunai
- * @property string $thoigian_ketthuc
- * @property integer $trangthai_nguoithang
- * @property integer $trangthai_xuly
- * @property double $tien_khieunai
+ * @property string $tengiaodich
  */
-class Khieunai extends CActiveRecord
+class Loaigiaodich extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'tbl_khieunai';
+		return 'tbl_loaigiaodich';
 	}
 
 	/**
@@ -31,12 +25,11 @@ class Khieunai extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('cauhoi_id, user_id, thoigian_khieunai, thoigian_ketthuc, trangthai_nguoithang, trangthai_xuly, tien_khieunai', 'required'),
-			array('cauhoi_id, user_id, trangthai_nguoithang, trangthai_xuly', 'numerical', 'integerOnly'=>true),
-			array('tien_khieunai', 'numerical'),
+			array('tengiaodich', 'required'),
+			array('tengiaodich', 'length', 'max'=>50),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, cauhoi_id, user_id, thoigian_khieunai, thoigian_ketthuc, trangthai_nguoithang, trangthai_xuly, tien_khieunai', 'safe', 'on'=>'search'),
+			array('id, tengiaodich', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -58,13 +51,7 @@ class Khieunai extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'cauhoi_id' => 'Cauhoi',
-			'user_id' => 'User',
-			'thoigian_khieunai' => 'Thoigian Khieunai',
-			'thoigian_ketthuc' => 'Thoigian Ketthuc',
-			'trangthai_nguoithang' => 'Trangthai Nguoithang',
-			'trangthai_xuly' => 'Trangthai Xuly',
-			'tien_khieunai' => 'Tien Khieunai',
+			'tengiaodich' => 'Tengiaodich',
 		);
 	}
 
@@ -87,13 +74,7 @@ class Khieunai extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('cauhoi_id',$this->cauhoi_id);
-		$criteria->compare('user_id',$this->user_id);
-		$criteria->compare('thoigian_khieunai',$this->thoigian_khieunai,true);
-		$criteria->compare('thoigian_ketthuc',$this->thoigian_ketthuc,true);
-		$criteria->compare('trangthai_nguoithang',$this->trangthai_nguoithang);
-		$criteria->compare('trangthai_xuly',$this->trangthai_xuly);
-		$criteria->compare('tien_khieunai',$this->tien_khieunai);
+		$criteria->compare('tengiaodich',$this->tengiaodich,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -104,7 +85,7 @@ class Khieunai extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Khieunai the static model class
+	 * @return Loaigiaodich the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

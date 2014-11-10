@@ -1,26 +1,25 @@
 <?php
 
 /**
- * This is the model class for table "tbl_khieunai".
+ * This is the model class for table "tbl_log_tien".
  *
- * The followings are the available columns in table 'tbl_khieunai':
+ * The followings are the available columns in table 'tbl_log_tien':
  * @property integer $id
  * @property integer $cauhoi_id
- * @property integer $user_id
- * @property string $thoigian_khieunai
- * @property string $thoigian_ketthuc
- * @property integer $trangthai_nguoithang
- * @property integer $trangthai_xuly
- * @property double $tien_khieunai
+ * @property integer $nguoinhan_id
+ * @property integer $nguoichuyen_id
+ * @property integer $loaigiaodich_id
+ * @property double $tien
+ * @property string $thoi_gian
  */
-class Khieunai extends CActiveRecord
+class LogTien extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'tbl_khieunai';
+		return 'tbl_log_tien';
 	}
 
 	/**
@@ -31,12 +30,12 @@ class Khieunai extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('cauhoi_id, user_id, thoigian_khieunai, thoigian_ketthuc, trangthai_nguoithang, trangthai_xuly, tien_khieunai', 'required'),
-			array('cauhoi_id, user_id, trangthai_nguoithang, trangthai_xuly', 'numerical', 'integerOnly'=>true),
-			array('tien_khieunai', 'numerical'),
+			array('cauhoi_id, nguoinhan_id, nguoichuyen_id, loaigiaodich_id, tien, thoi_gian', 'required'),
+			array('cauhoi_id, nguoinhan_id, nguoichuyen_id, loaigiaodich_id', 'numerical', 'integerOnly'=>true),
+			array('tien', 'numerical'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, cauhoi_id, user_id, thoigian_khieunai, thoigian_ketthuc, trangthai_nguoithang, trangthai_xuly, tien_khieunai', 'safe', 'on'=>'search'),
+			array('id, cauhoi_id, nguoinhan_id, nguoichuyen_id, loaigiaodich_id, tien, thoi_gian', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -59,12 +58,11 @@ class Khieunai extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'cauhoi_id' => 'Cauhoi',
-			'user_id' => 'User',
-			'thoigian_khieunai' => 'Thoigian Khieunai',
-			'thoigian_ketthuc' => 'Thoigian Ketthuc',
-			'trangthai_nguoithang' => 'Trangthai Nguoithang',
-			'trangthai_xuly' => 'Trangthai Xuly',
-			'tien_khieunai' => 'Tien Khieunai',
+			'nguoinhan_id' => 'Nguoinhan',
+			'nguoichuyen_id' => 'Nguoichuyen',
+			'loaigiaodich_id' => 'Loaigiaodich',
+			'tien' => 'Tien',
+			'thoi_gian' => 'Thoi Gian',
 		);
 	}
 
@@ -88,12 +86,11 @@ class Khieunai extends CActiveRecord
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('cauhoi_id',$this->cauhoi_id);
-		$criteria->compare('user_id',$this->user_id);
-		$criteria->compare('thoigian_khieunai',$this->thoigian_khieunai,true);
-		$criteria->compare('thoigian_ketthuc',$this->thoigian_ketthuc,true);
-		$criteria->compare('trangthai_nguoithang',$this->trangthai_nguoithang);
-		$criteria->compare('trangthai_xuly',$this->trangthai_xuly);
-		$criteria->compare('tien_khieunai',$this->tien_khieunai);
+		$criteria->compare('nguoinhan_id',$this->nguoinhan_id);
+		$criteria->compare('nguoichuyen_id',$this->nguoichuyen_id);
+		$criteria->compare('loaigiaodich_id',$this->loaigiaodich_id);
+		$criteria->compare('tien',$this->tien);
+		$criteria->compare('thoi_gian',$this->thoi_gian,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -104,7 +101,7 @@ class Khieunai extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Khieunai the static model class
+	 * @return LogTien the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
