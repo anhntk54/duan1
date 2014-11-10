@@ -15,10 +15,6 @@ $t = array(
 	),
 
 	'modules'=>array(
-		"TaiKhoan",
-		'DoiTac',
-		"KhachHang",
-		"backup",
 	),
 
 	// application components
@@ -26,7 +22,7 @@ $t = array(
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
-			// 'loginUrl'=>array("/TaiKhoan/Login"),
+			'loginUrl'=>array("/TaiKhoan/Login"),
 		),
 		// uncomment the following to enable URLs in path-format
 		/*

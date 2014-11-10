@@ -9,7 +9,6 @@ $globals=dirname(__FILE__).'/protected/config/globals.php';
 defined('YII_DEBUG') or define('YII_DEBUG',true);
 // specify how many levels of call stack should be shown in each log message
 defined('YII_TRACE_LEVEL') or define('YII_TRACE_LEVEL',3);
-define('FILE_EXCEL', dirname(__FILE__).'/file/');
 
 require_once($yii);
 require_once($_config);

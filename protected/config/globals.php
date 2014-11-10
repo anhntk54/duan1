@@ -1,34 +1,32 @@
 <?php
-    function getMoney($value)
-    {
-        setlocale(LC_MONETARY,"en_US");
-        return number_format($value);
-    }
     function getTypeFile($string){
         $pieces = explode(".", $string);
         $leng = count($pieces);
         return $pieces[$leng-1];
     }
-    function checkdirectory($name_root_directory)
+  function checkdirectory($name_root_directory)
     {
         if (!is_dir($name_root_directory))
         {
             mkdir($name_root_directory, 0777);
-                //mkdir($name_root_directory, 0777);
+                mkdir($name_root_directory.'thumbai_100', 0777);
+                mkdir($name_root_directory.'thumbai_300', 0777);
+                mkdir($name_root_directory.'slide_640_350', 0777);
+                //mkdir($name_root_directory.'_300', 0777);
                     //mkdir($name_root_directory.'Banner/originimage', 0777);
                     //mkdir($name_root_directory.'Banner/resize', 0777);
-    
+
                 /*mkdir($name_root_directory.'Place', 0777);
                     mkdir($name_root_directory.'Place/originimage', 0777);
                     mkdir($name_root_directory.'Place/resize', 0777);
-    
+
                 mkdir($name_root_directory.'Avatar',0777);
                     mkdir($name_root_directory.'Avatar/originimage', 0777);
-    
+
                 mkdir($name_root_directory.'Member', 0777);
                     mkdir($name_root_directory.'Member/originimage', 0777);
                     mkdir($name_root_directory.'Member/173_150', 0777);
-    
+
                 mkdir($name_root_directory.'Thumb',0777);
                     mkdir($name_root_directory.'Thumb/originimage', 0777);*/
         }
@@ -36,7 +34,7 @@
     // clrean [!#@##^$&%*^] in string to tag input
     // convert string to : ex: add-comment-add
      function toSlug($string, $force_lowercase = true, $anal = false) {
-            $strip = array("~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "=", "+", "[", "{", "]","'","-",
+            $strip = array("~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "=", "+", "[", "{", "]",
                            "}", "\\", "|", ";", ":", "\"","“","”", "'", "&#8216;", "&#8217;", "&#8220;", "&#8221;", "&#8211;", "&#8212;",
                            "â€”", "â€“", ",", "<", ".", ">", "/", "?","-");
             $clean = trim(str_replace($strip, "", strip_tags($string)));
@@ -142,21 +140,21 @@
     }
     
     function isImage($value){
-      $pattern ="/\.(JPG|jpg|GIF|gif|PNG|png|JPEG|jpeg)/";
-      preg_match($pattern, $value, $matches);
-      if (count($matches)>0)
-       return true;
-      else
-       return false;
-     }
+        $pattern ="/\.(JPG|jpg|GIF|gif|PNG|png|JPEG|jpeg)/";
+        preg_match($pattern, $value, $matches);
+        if (count($matches)>0)
+            return true;
+        else
+            return false;
+    }
 
      function parserContent($value){
-          $pattern ="/(http|https|ftp)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(:[a-zA-Z0-9]*)?\/?([a-zA-Z0-9\-\._\?\,\'\/\\\+&amp;%\$#\=~])*/m"; 
-          preg_match_all($pattern, $value, $matches, PREG_SET_ORDER);
-          return $matches;
-         }
+        $pattern ="/(http|https|ftp)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(:[a-zA-Z0-9]*)?\/?([a-zA-Z0-9\-\._\?\,\'\/\\\+&amp;%\$#\=~])*/m"; 
+        preg_match_all($pattern, $value, $matches, PREG_SET_ORDER);
+        return $matches;
+     }
 
- function convertImage($value, $domain, $uploadPath, $newName = ''){
+    function convertImage($value, $domain, $uploadPath, $newName = ''){
         $arrTemp = parserContent($value);
         $arrPattern = array();
         $arrReplace = array();
@@ -167,11 +165,8 @@
                 $link = preg_replace('/\\\/','',$arrTemp[$i][0]);
                 array_push($arrPattern, trim("'".preg_replace('/(\/|\:|\.|\-|\%)/', '\\\\\\1', $link)."'"));
                 if (isImage($link) == true) {
-                $newName = 'event-content-'.rand(999,999999999).'.jpg';
+                $newName = 'news-content-'.rand(999,999999999).'.jpg';
                      copy($link, $uploadPath.$newName);
-                     /*$objImage = new image();*/
-                     //$newImage = $objImage->copyImage($link, $link, $newName);
-                     /*$newImage = $objImage->saveImageII("", $link, $link, $newName);*/
                      array_push($arrReplace, $domain.'/'.$uploadPath.$newName);
                 } else {
                      if (strpos($arrTemp[$i][0], $domain) > 0) {

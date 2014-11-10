@@ -18,11 +18,11 @@ class UserIdentity extends CUserIdentity
 	 */
 	public function authenticate()
 	{
-		$user = Taikhoan::model()->find("tendangnhap='$this->username'");
+		$user = Admin::model()->find("username='$this->username'");
 		if ($user===null){
 			$this->errorCode=self::ERROR_USERNAME_INVALID;
 		}else {
-        	if (Taikhoan::MaHoaMatKhau($this->password) != $user->matkhau){
+        	if (Admin::MaHoaMatKhau($this->password) != $user->password){
         		$this->errorCode=self::ERROR_USERNAME_INVALID;
         	}else {
                 // $user->updateByPk($user->id, array("lastlogin"=>new CDbExpression('NOW()')));
