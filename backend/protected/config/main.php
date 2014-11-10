@@ -18,6 +18,7 @@ $t = array(
 		'CauHoi',
 		'TaiKhoan',
 		"backup",
+		'Config',
 	),
 
 	// application components

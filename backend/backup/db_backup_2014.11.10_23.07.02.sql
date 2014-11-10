@@ -48,9 +48,10 @@ CREATE TABLE IF NOT EXISTS `tbl_cauhoi` (
 -- -------------------------------------------
 DROP TABLE IF EXISTS `tbl_config`;
 CREATE TABLE IF NOT EXISTS `tbl_config` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `value` varchar(11) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+  `value` varchar(11) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
 
 -- -------------------------------------------
@@ -75,6 +76,7 @@ CREATE TABLE IF NOT EXISTS `tbl_khieunai` (
   `thoigian_ketthuc` datetime NOT NULL,
   `trangthai_nguoithang` int(11) NOT NULL,
   `trangthai_xuly` int(11) NOT NULL,
+  `tien_khieunai` float NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
 
@@ -83,10 +85,21 @@ CREATE TABLE IF NOT EXISTS `tbl_khieunai` (
 -- -------------------------------------------
 DROP TABLE IF EXISTS `tbl_level`;
 CREATE TABLE IF NOT EXISTS `tbl_level` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `ten` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `tien_toi_thieu` float NOT NULL
+  `tien_toi_thieu` float NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
+
+-- -------------------------------------------
+-- TABLE `tbl_loaigiaodich`
+-- -------------------------------------------
+DROP TABLE IF EXISTS `tbl_loaigiaodich`;
+CREATE TABLE IF NOT EXISTS `tbl_loaigiaodich` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tengiaodich` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- -------------------------------------------
 -- TABLE `tbl_log`
@@ -100,6 +113,21 @@ CREATE TABLE IF NOT EXISTS `tbl_log` (
   `hanhdong_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
+
+-- -------------------------------------------
+-- TABLE `tbl_log_tien`
+-- -------------------------------------------
+DROP TABLE IF EXISTS `tbl_log_tien`;
+CREATE TABLE IF NOT EXISTS `tbl_log_tien` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `cauhoi_id` int(11) NOT NULL,
+  `nguoinhan_id` int(11) NOT NULL,
+  `nguoichuyen_id` int(11) NOT NULL,
+  `loaigiaodich_id` int(11) NOT NULL,
+  `tien` float NOT NULL,
+  `thoi_gian` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- -------------------------------------------
 -- TABLE `tbl_logvote`
