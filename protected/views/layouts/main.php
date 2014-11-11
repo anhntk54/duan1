@@ -31,8 +31,6 @@
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
 				array('label'=>'Home', 'url'=>array('/site/index')),
-				array('label'=>'Người dùng', 'url'=>array('/TaiKhoan/user/admin'), 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'Backup', 'url'=>array('/backup/default/'), 'visible'=>!Yii::app()->user->isGuest),
                 array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
 			),
 		)); ?>

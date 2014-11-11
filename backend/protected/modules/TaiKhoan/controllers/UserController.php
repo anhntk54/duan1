@@ -1,6 +1,6 @@
 <?php
 
-class AdminController extends Controller
+class UserController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -32,7 +32,7 @@ class AdminController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('admin','delete','create','index','view','update'),
+				'actions'=>array('admin','delete','index','view','create','update'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -62,19 +62,25 @@ class AdminController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Admin;
+		$model=new User;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Admin']))
-		{;
-			$model->attributes=$_POST['Admin'];
-			$model->password = Admin::MaHoaMatKhau($model->password);
+		if(isset($_POST['User']))
+		{
+			$model->attributes=$_POST['User'];
+			$model->level_id = 0;
+			$model->facebook_id = 0;
+			$model->avatar = CUploadedFile::getInstance($model, 'avatar');
+			if ($model->avatar != '') {
+				$image =  time()."-".toSlug($model->avatar).".png";
+            	$model->avatar->saveAs(Yii::app()->basePath.'/../../' .AVATAR.$image);
+            	$model->avatar = $image;
+			}
 			if($model->save()){
 				$this->redirect(array('view','id'=>$model->id));
 			}
-				
 		}
 
 		$this->render('create',array(
@@ -93,12 +99,27 @@ class AdminController extends Controller
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['Admin']))
+		$old_avatar = $model->avatar;
+		if(isset($_POST['User']))
 		{
-			$model->attributes=$_POST['Admin'];
-			if($model->save())
+			$model->attributes=$_POST['User'];
+			$model->avatar = CUploadedFile::getInstance($model, 'avatar');
+			if($model->validate()){
+				if ($model->avatar != '') {
+					$image =  time()."-".toSlug($model->avatar).".png";
+	            	$model->avatar->saveAs(Yii::app()->basePath .'/../../'.AVATAR.$image);
+	            	$model->avatar = $image;
+	            	$file = Yii::app()->basePath .'/../../'.AVATAR.$old_avatar;
+	            	if ($old_avatar != '' && file_exists($file)) {
+	            		unlink($file);
+	            	}
+				}else{
+					$model->avatar = $old_avatar;
+				}
+			}
+			if($model->save()){
 				$this->redirect(array('view','id'=>$model->id));
+			}
 		}
 
 		$this->render('update',array(
@@ -125,7 +146,7 @@ class AdminController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Admin');
+		$dataProvider=new CActiveDataProvider('User');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -136,10 +157,10 @@ class AdminController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Admin('search');
+		$model=new User('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Admin']))
-			$model->attributes=$_GET['Admin'];
+		if(isset($_GET['User']))
+			$model->attributes=$_GET['User'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -150,12 +171,12 @@ class AdminController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return Admin the loaded model
+	 * @return User the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=Admin::model()->findByPk($id);
+		$model=User::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -163,11 +184,11 @@ class AdminController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param Admin $model the model to be validated
+	 * @param User $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='admin-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='user-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

@@ -1,6 +1,6 @@
 <?php 
 define('DB_NAME', 'thachdo');
-define('APP_NAME', 'Thách đố');
+define('APP_NAME', 'domipa');
 
 /** MySQL database username */
 define('DB_USER', 'root');
