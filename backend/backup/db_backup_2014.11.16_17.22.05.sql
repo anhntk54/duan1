@@ -50,9 +50,10 @@ DROP TABLE IF EXISTS `tbl_config`;
 CREATE TABLE IF NOT EXISTS `tbl_config` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `value` varchar(11) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `value` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `status` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
 
 -- -------------------------------------------
 -- TABLE `tbl_hanhdong`
@@ -263,13 +264,31 @@ CREATE TABLE IF NOT EXISTS `tbl_user` (
   `avatar` varchar(200) COLLATE utf32_unicode_ci NOT NULL,
   `level_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
 
 -- -------------------------------------------
 -- TABLE DATA tbl_admin
 -- -------------------------------------------
 INSERT INTO `tbl_admin` (`id`,`username`,`password`) VALUES
 ('2','trieunhu','4650168ea55d0b7102199e86f9de5988');
+
+
+
+-- -------------------------------------------
+-- TABLE DATA tbl_config
+-- -------------------------------------------
+INSERT INTO `tbl_config` (`id`,`name`,`value`,`status`) VALUES
+('14','logo','1416131678-img4693jpg.JPG','1');
+INSERT INTO `tbl_config` (`id`,`name`,`value`,`status`) VALUES
+('15','tiencuoc','1','0');
+
+
+
+-- -------------------------------------------
+-- TABLE DATA tbl_user
+-- -------------------------------------------
+INSERT INTO `tbl_user` (`id`,`username`,`facebook_id`,`email`,`password`,`ten_day_du`,`avatar`,`level_id`) VALUES
+('1','1','0','anhntk54@gmail.com','','1','1416128851-img4752jpg.png','0');
 
 
 

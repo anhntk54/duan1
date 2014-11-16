@@ -11,6 +11,8 @@
  */
 class Config extends CActiveRecord
 {
+	public $data_value;
+	public $data_file;
 	/**
 	 * @return string the associated database table name
 	 */
@@ -27,10 +29,12 @@ class Config extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, value, status', 'required'),
+			array('name, status,data_value', 'required','on'=>'value'),
+			array('name, status,value', 'required','on'=>'file'),
 			array('status', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>50),
-			array('value', 'length', 'max'=>11),
+			array('name', 'unique', 'message'=>'{attribute} đã được sử dụng'),
+			array('value,data_value,data_file', 'length', 'max'=>250),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, name, value, status', 'safe', 'on'=>'search'),
@@ -55,9 +59,10 @@ class Config extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'name' => 'Name',
-			'value' => 'Value',
-			'status' => 'Status',
+			'name' => 'Tên',
+			'value' => 'Giá trị',
+			'status' => 'Trạng thái',
+			'data_value'=>"Giá trị"
 		);
 	}
 

@@ -70,8 +70,32 @@ class ConfigController extends Controller
 		if(isset($_POST['Config']))
 		{
 			$model->attributes=$_POST['Config'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			if ($model->status == 0) {
+				$model->scenario = 'value';
+			}else{
+				$model->scenario = 'file';
+			}
+			$model->value = CUploadedFile::getInstance($model, 'value');
+			if ($model->validate()) {
+				if ($model->status == 0) {
+					if ($model->data_value != '') {
+						$model->value = $model->data_value;
+					}
+				}else{
+					if ($model->value != '') {
+						$arr = explode('.', $model->value);
+						$file =  time()."-".$model->value;
+						if (count($arr) > 0) {
+							$file =  time()."-".toSlug($model->value).'.'.$arr[count($arr)-1];
+						}
+						$model->value->saveAs(Yii::app()->basePath.'/../../' .FILE_CONFIG.$file);
+						$model->value = $file;
+					}
+				}
+				if($model->save()){
+					$this->redirect(array('admin'));	
+				}
+			}	
 		}
 
 		$this->render('create',array(
@@ -90,12 +114,43 @@ class ConfigController extends Controller
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-
+		$old_value = $model->value;
+		$model->data_value = $model->value;
 		if(isset($_POST['Config']))
 		{
 			$model->attributes=$_POST['Config'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			if ($model->status == 0) {
+				$model->scenario = 'value';
+			}else{
+				$model->scenario = 'file';
+			}
+			$model->value = CUploadedFile::getInstance($model, 'value');
+			if ($model->validate()) {
+				if ($model->status == 0) {
+					if ($model->data_value != '') {
+						$model->value = $model->data_value;
+					}
+				}else{
+					if ($model->value != '') {
+						$arr = explode('.', $model->value);
+						$file =  time()."-".$model->value;
+						if (count($arr) > 0) {
+							$file =  time()."-".toSlug($model->value).'.'.$arr[count($arr)-1];
+						}
+						$model->value->saveAs(Yii::app()->basePath.'/../../' .FILE_CONFIG.$file);
+						$model->value = $file;
+						$file = Yii::app()->basePath .'/../../'.FILE_CONFIG.$old_value;
+		            	if ($old_value != '' && file_exists($file)) {
+		            		unlink($file);
+		            	}
+					}else{
+						$model->value = $old_value;
+					}
+				}
+				if($model->save()){
+					$this->redirect(array('admin'));	
+				}
+			}
 		}
 
 		$this->render('update',array(
