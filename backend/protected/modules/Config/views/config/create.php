@@ -8,7 +8,6 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Config', 'url'=>array('index')),
 	array('label'=>'Manage Config', 'url'=>array('admin')),
 );
 ?>

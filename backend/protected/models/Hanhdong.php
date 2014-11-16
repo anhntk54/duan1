@@ -51,7 +51,7 @@ class Hanhdong extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'noi_dung' => 'Noi Dung',
+			'noi_dung' => 'Nội dung',
 		);
 	}
 
