@@ -26,7 +26,7 @@ class Level extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id, ten, tien_toi_thieu', 'required'),
+			array('ten, tien_toi_thieu', 'required'),
 			array('id', 'numerical', 'integerOnly'=>true),
 			array('tien_toi_thieu', 'numerical'),
 			array('ten', 'length', 'max'=>50),

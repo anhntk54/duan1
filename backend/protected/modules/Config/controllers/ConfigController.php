@@ -189,7 +189,7 @@ class ConfigController extends Controller
 	public function actionAdmin()
 	{
 		$model=new Config('search');
-		$model->unsetAttributes();  // clear any default values
+		// $model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Config']))
 			$model->attributes=$_GET['Config'];
 

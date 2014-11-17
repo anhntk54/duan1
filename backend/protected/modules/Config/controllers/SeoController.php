@@ -1,6 +1,6 @@
 <?php
 
-class LevelController extends Controller
+class SeoController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -62,22 +62,16 @@ class LevelController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Level;
+		$model=new Seo;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Level']))
+		if(isset($_POST['Seo']))
 		{
-			$model->attributes=$_POST['Level'];
-			$model->hinh_anh = CUploadedFile::getInstance($model, 'hinh_anh');
-			if ($model->hinh_anh != '') {
-				$image =  time()."-".toSlug($model->hinh_anh).".png";
-            	$model->hinh_anh->saveAs(Yii::app()->basePath.'/../../' .IMAGE_LEVEL.$image);
-            	$model->hinh_anh = $image;
-			}
+			$model->attributes=$_POST['Seo'];
 			if($model->save())
-				$this->redirect(array('admin'));
+				$this->redirect(array('view','id'=>$model->id));
 		}
 
 		$this->render('create',array(
@@ -96,26 +90,12 @@ class LevelController extends Controller
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-		$old_hinh_anh = $model->hinh_anh;
-		if(isset($_POST['Level']))
+
+		if(isset($_POST['Seo']))
 		{
-			$model->attributes=$_POST['Level'];
-			$model->hinh_anh = CUploadedFile::getInstance($model, 'hinh_anh');
-			if($model->validate()){
-				if ($model->hinh_anh != '') {
-					$image =  time()."-".toSlug($model->hinh_anh).".png";
-	            	$model->hinh_anh->saveAs(Yii::app()->basePath .'/../../'.IMAGE_LEVEL.$image);
-	            	$model->hinh_anh = $image;
-	            	$file = Yii::app()->basePath .'/../../'.IMAGE_LEVEL.$old_hinh_anh;
-	            	if ($old_hinh_anh != '' && file_exists($file)) {
-	            		unlink($file);
-	            	}
-				}else{
-					$model->hinh_anh = $old_hinh_anh;
-				}
-			}
+			$model->attributes=$_POST['Seo'];
 			if($model->save())
-				$this->redirect(array('admin'));
+				$this->redirect(array('view','id'=>$model->id));
 		}
 
 		$this->render('update',array(
@@ -142,7 +122,7 @@ class LevelController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Level');
+		$dataProvider=new CActiveDataProvider('Seo');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -153,10 +133,10 @@ class LevelController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Level('search');
+		$model=new Seo('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Level']))
-			$model->attributes=$_GET['Level'];
+		if(isset($_GET['Seo']))
+			$model->attributes=$_GET['Seo'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -167,12 +147,12 @@ class LevelController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return Level the loaded model
+	 * @return Seo the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=Level::model()->findByPk($id);
+		$model=Seo::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -180,11 +160,11 @@ class LevelController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param Level $model the model to be validated
+	 * @param Seo $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='level-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='seo-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
