@@ -8,12 +8,12 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create Admin', 'url'=>array('create')),
+	array('label'=>'Tạo người dùng quản lý', 'url'=>array('create')),
 );
 
 ?>
 
-<h1>Manage Admins</h1>=
+<h1>Manage Admins</h1>
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'admin-grid',

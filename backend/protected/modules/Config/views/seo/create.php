@@ -1,18 +1,18 @@
 <?php
-/* @var $this SeoController */
-/* @var $model Seo */
+/* @var $this DefaultController */
+/* @var $model SeoTools */
 
 $this->breadcrumbs=array(
-	'Seos'=>array('index'),
+	'Seo Tools'=>array('index'),
 	'Create',
 );
 
 $this->menu=array(
-	array('label'=>'List Seo', 'url'=>array('index')),
-	array('label'=>'Manage Seo', 'url'=>array('admin')),
+	array('label'=>'List SeoTools', 'url'=>array('index')),
+	array('label'=>'Manage SeoTools', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Seo</h1>
+<h1>Create SeoTools</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

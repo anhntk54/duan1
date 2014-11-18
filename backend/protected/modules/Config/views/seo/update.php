@@ -1,21 +1,19 @@
 <?php
-/* @var $this SeoController */
-/* @var $model Seo */
+/* @var $this DefaultController */
+/* @var $model SeoTools */
 
 $this->breadcrumbs=array(
-	'Seos'=>array('index'),
+	'Seo'=>array('admin'),
 	$model->title=>array('view','id'=>$model->id),
 	'Update',
 );
 
 $this->menu=array(
-	array('label'=>'List Seo', 'url'=>array('index')),
-	array('label'=>'Create Seo', 'url'=>array('create')),
-	array('label'=>'View Seo', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage Seo', 'url'=>array('admin')),
+	array('label'=>'Tạo seo mới', 'url'=>array('create')),
+	array('label'=>'Quản lý seo', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update Seo <?php echo $model->id; ?></h1>
+<h1>Update SeoTools <?php echo $model->id; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

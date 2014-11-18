@@ -5,6 +5,7 @@
  *
  * The followings are the available columns in table 'tbl_seo':
  * @property string $id
+ * @property string $type
  * @property string $title
  * @property string $description
  * @property string $keywords
@@ -29,14 +30,16 @@ class Seo extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('create_date', 'required'),
+			array('type, description,title', 'required'),
+			array('type', 'length', 'max'=>20),
+			array('type', 'unique', 'message'=>'{attribute} đã được sử dụng'),
 			array('title', 'length', 'max'=>128),
 			array('description', 'length', 'max'=>255),
 			array('keywords', 'length', 'max'=>500),
 			array('metarobot', 'length', 'max'=>50),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, title, description, keywords, metarobot, create_date', 'safe', 'on'=>'search'),
+			array('id, type, title, description, keywords, metarobot, create_date', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -58,6 +61,7 @@ class Seo extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
+			'type' => 'Type',
 			'title' => 'Title',
 			'description' => 'Description',
 			'keywords' => 'Keywords',
@@ -85,6 +89,7 @@ class Seo extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id,true);
+		$criteria->compare('type',$this->type,true);
 		$criteria->compare('title',$this->title,true);
 		$criteria->compare('description',$this->description,true);
 		$criteria->compare('keywords',$this->keywords,true);

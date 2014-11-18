@@ -70,8 +70,9 @@ class SeoController extends Controller
 		if(isset($_POST['Seo']))
 		{
 			$model->attributes=$_POST['Seo'];
+			$model->create_date=date("Y-m-d H:i:s");
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('admin'));
 		}
 
 		$this->render('create',array(
@@ -95,7 +96,7 @@ class SeoController extends Controller
 		{
 			$model->attributes=$_POST['Seo'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('admin'));
 		}
 
 		$this->render('update',array(
@@ -164,7 +165,7 @@ class SeoController extends Controller
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='seo-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='seo-tools-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
