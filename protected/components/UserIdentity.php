@@ -8,12 +8,6 @@
 class UserIdentity extends CUserIdentity
 {
 	private $_id;
-	private $email;
-	public function __construct($username,$email)
-	{
-		$this->username=$username;
-		$this->email = $email;
-	}
 	/**
 	 * Authenticates a user.
 	 * The example implementation makes sure if the username and password
@@ -24,13 +18,11 @@ class UserIdentity extends CUserIdentity
 	 */
 	public function authenticate()
 	{
-		$user = Members::model()->findByAttributes(array('email'=>$this->email,'username'=>$this->username));
+		$user = User::model()->findByAttributes(array('username'=>$this->username));
 		if ($user===null){
 			$this->errorCode=self::ERROR_USERNAME_INVALID;
 		}else {
         	$this->_id=$user->id;
-        	$this->setState('display_name', $user->display_name);
-        	$this->setState('statusLogin', 2);
 			$this->errorCode=self::ERROR_NONE;
 		}
 		return $this->errorCode;

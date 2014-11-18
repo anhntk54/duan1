@@ -27,12 +27,24 @@ class SiteController extends Controller
 	 */
 	public function actionIndex()
 	{
-		// renders the view file 'protected/views/site/index.php'
-		// using the default layout 'protected/views/layouts/main.php'
-		$a = "akjakj";
 		$this->render('index');
 	}
-
+	public function actionLogin()
+	{
+		$model = User::model()->findAll();
+		$this->render('login',array('model'=>$model));	
+	}
+	public function actionLinkLogin($id)
+	{
+		$user = User::model()->findByPk($id);
+		if ($user != null) {
+			$model = new LoginForm;
+			$model->username = $user->username;
+			if ($model->login()) {
+				$this->redirect(array('index'));
+			}
+		}		
+	}
 	/**
 	 * This is the action to handle external exceptions.
 	 */
