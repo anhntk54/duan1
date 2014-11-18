@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `tbl_level` (
   `tien_toi_thieu` float NOT NULL,
   `hinh_anh` varchar(250) COLLATE utf32_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
 
 -- -------------------------------------------
 -- TABLE `tbl_loaigiaodich`
@@ -264,7 +264,7 @@ CREATE TABLE IF NOT EXISTS `tbl_user` (
   `avatar` varchar(200) COLLATE utf32_unicode_ci NOT NULL,
   `level_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
 
 -- -------------------------------------------
 -- TABLE DATA tbl_admin
@@ -285,10 +285,24 @@ INSERT INTO `tbl_config` (`id`,`name`,`value`,`status`) VALUES
 
 
 -- -------------------------------------------
+-- TABLE DATA tbl_level
+-- -------------------------------------------
+INSERT INTO `tbl_level` (`id`,`ten`,`tien_toi_thieu`,`hinh_anh`) VALUES
+('1','1','1','1416194707-10358729654706094643311133203556448728575njpg.png');
+
+
+
+-- -------------------------------------------
 -- TABLE DATA tbl_user
 -- -------------------------------------------
 INSERT INTO `tbl_user` (`id`,`username`,`facebook_id`,`email`,`password`,`ten_day_du`,`avatar`,`level_id`) VALUES
-('1','1','0','anhntk54@gmail.com','','1','1416128851-img4752jpg.png','0');
+('2','anhtrieunhu','0','anhntk54@gmail.com','','Triệu Nhữ','1416293126-avatar002jpg.png','0');
+INSERT INTO `tbl_user` (`id`,`username`,`facebook_id`,`email`,`password`,`ten_day_du`,`avatar`,`level_id`) VALUES
+('3','minhtien','0','minhtien@gmail.com','','Minh Tiến','1416293173-avatar003jpg.png','0');
+INSERT INTO `tbl_user` (`id`,`username`,`facebook_id`,`email`,`password`,`ten_day_du`,`avatar`,`level_id`) VALUES
+('4','Naruto','0','Naruto@gmail.com','','Naruto','1416293210-avatar004jpg.png','0');
+INSERT INTO `tbl_user` (`id`,`username`,`facebook_id`,`email`,`password`,`ten_day_du`,`avatar`,`level_id`) VALUES
+('5','the','0','thedm@gmail.com','','Lê Quang Thế','1416293249-avatar001jpg.png','0');
 
 
 
