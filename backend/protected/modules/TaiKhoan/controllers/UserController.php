@@ -78,7 +78,14 @@ class UserController extends Controller
             	$model->avatar->saveAs(Yii::app()->basePath.'/../../' .AVATAR.$image);
             	$model->avatar = $image;
 			}
+			if ($model->password != '') {
+				$model->password = User::MaHoaMatKhau($model->password);
+			}
 			if($model->save()){
+				$taikhoan = new Taikhoan;
+				$taikhoan->user_id = $model->id;
+				$taikhoan->tai_khoan = Config::TienMacDinhCuaNguoiDung();
+				$taikhoan->save();
 				$this->redirect(array('view','id'=>$model->id));
 			}
 		}

@@ -1,24 +1,21 @@
 <?php
 
 /**
- * This is the model class for table "tbl_config".
+ * This is the model class for table "tbl_hengio".
  *
- * The followings are the available columns in table 'tbl_config':
+ * The followings are the available columns in table 'tbl_hengio':
+ * @property integer $ten
  * @property integer $id
- * @property string $name
- * @property string $value
- * @property integer $status
+ * @property integer $gia_tri
  */
-class Config extends CActiveRecord
+class Hengio extends CActiveRecord
 {
-	public $data_value;
-	public $data_file;
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'tbl_config';
+		return 'tbl_hengio';
 	}
 
 	/**
@@ -29,15 +26,11 @@ class Config extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, status,data_value', 'required','on'=>'value'),
-			array('name, status,value', 'required','on'=>'file'),
-			array('status', 'numerical', 'integerOnly'=>true),
-			array('name', 'length', 'max'=>50),
-			array('name', 'unique', 'message'=>'{attribute} đã được sử dụng'),
-			array('value,data_value,data_file', 'length', 'max'=>250),
+			array('ten, gia_tri', 'required'),
+			array('ten, gia_tri', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, value, status', 'safe', 'on'=>'search'),
+			array('ten, id, gia_tri', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -58,11 +51,9 @@ class Config extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
+			'ten' => 'Ten',
 			'id' => 'ID',
-			'name' => 'Tên',
-			'value' => 'Giá trị',
-			'status' => 'Trạng thái',
-			'data_value'=>"Giá trị"
+			'gia_tri' => 'Gia Tri',
 		);
 	}
 
@@ -84,10 +75,9 @@ class Config extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
+		$criteria->compare('ten',$this->ten);
 		$criteria->compare('id',$this->id);
-		$criteria->compare('name',$this->name,true);
-		$criteria->compare('value',$this->value,true);
-		$criteria->compare('status',$this->status);
+		$criteria->compare('gia_tri',$this->gia_tri);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -98,19 +88,10 @@ class Config extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Config the static model class
+	 * @return Hengio the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
-	}
-
-	public static function TienMacDinhCuaNguoiDung()
-	{
-		$model = Config::model()->findByAttributes(array('name'=>'tiennguoidung'));
-		if ($model != null) {
-			return $model->value;
-		}
-		return 0;
 	}
 }
