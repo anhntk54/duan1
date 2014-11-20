@@ -43,6 +43,7 @@ class LevelTien extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'level'=> array(self::BELONGS_TO,'Level','level_id'),
 		);
 	}
 

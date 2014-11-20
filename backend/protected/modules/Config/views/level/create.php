@@ -3,12 +3,11 @@
 /* @var $model Level */
 
 $this->breadcrumbs=array(
-	'Levels'=>array('index'),
+	'Levels'=>array('admin'),
 	'Create',
 );
 
 $this->menu=array(
-	array('label'=>'List Level', 'url'=>array('index')),
 	array('label'=>'Manage Level', 'url'=>array('admin')),
 );
 ?>

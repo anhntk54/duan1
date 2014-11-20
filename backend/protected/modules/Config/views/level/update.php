@@ -9,7 +9,6 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Level', 'url'=>array('index')),
 	array('label'=>'Create Level', 'url'=>array('create')),
 	array('label'=>'View Level', 'url'=>array('view', 'id'=>$model->id)),
 	array('label'=>'Manage Level', 'url'=>array('admin')),

@@ -8,11 +8,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Level', 'url'=>array('index')),
-	array('label'=>'Create Level', 'url'=>array('create')),
-	array('label'=>'Update Level', 'url'=>array('update', 'id'=>$model->id)),
-	array('label'=>'Delete Level', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Level', 'url'=>array('admin')),
+	array('label'=>'Tạo Level', 'url'=>array('create')),
+	array('label'=>'Cập nhật Level', 'url'=>array('update', 'id'=>$model->id)),
+	array('label'=>'Tạo tiền cho Level', 'url'=>array('/Config/levelTien/create', 'id'=>$model->id)),
+	array('label'=>'Xóa Level', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'Quản lý Level', 'url'=>array('admin')),
 );
 ?>
 
@@ -23,7 +23,6 @@ $this->menu=array(
 	'attributes'=>array(
 		'id',
 		'ten',
-		'tien_toi_thieu',
 		'hinh_anh',
 	),
 )); ?>
