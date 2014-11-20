@@ -4957,3 +4957,49 @@ in C:\xampp\htdocs\duan1\backend\protected\modules\Config\controllers\LevelContr
 2014/11/17 10:25:07 [warning] [application] Failed to set unsafe attribute "hinh_anh" of "Level".
 in C:\xampp\htdocs\duan1\backend\protected\modules\Config\controllers\LevelController.php (102)
 in C:\xampp\htdocs\duan1\backend\index.php (20)
+2014/11/19 21:58:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "Cauhoi".' in E:\xampp\htdocs\duan1\framework\web\CWebApplication.php:286
+Stack trace:
+#0 E:\xampp\htdocs\duan1\framework\web\CWebApplication.php(141): CWebApplication->runController('Cauhoi')
+#1 E:\xampp\htdocs\duan1\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 E:\xampp\htdocs\duan1\backend\index.php(20): CApplication->run()
+#3 {main}
+REQUEST_URI=/duan1/backend/index.php?r=Cauhoi
+---
+2014/11/19 21:58:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "CauHoi".' in E:\xampp\htdocs\duan1\framework\web\CWebApplication.php:286
+Stack trace:
+#0 E:\xampp\htdocs\duan1\framework\web\CWebApplication.php(141): CWebApplication->runController('CauHoi')
+#1 E:\xampp\htdocs\duan1\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 E:\xampp\htdocs\duan1\backend\index.php(20): CApplication->run()
+#3 {main}
+REQUEST_URI=/duan1/backend/index.php?r=CauHoi
+---
+2014/11/19 21:59:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "TaiKhoan".' in E:\xampp\htdocs\duan1\framework\web\CWebApplication.php:286
+Stack trace:
+#0 E:\xampp\htdocs\duan1\framework\web\CWebApplication.php(141): CWebApplication->runController('TaiKhoan')
+#1 E:\xampp\htdocs\duan1\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 E:\xampp\htdocs\duan1\backend\index.php(20): CApplication->run()
+#3 {main}
+REQUEST_URI=/duan1/backend/index.php?r=TaiKhoan
+---
+2014/11/20 23:10:40 [error] [php] Undefined variable: typeImage (E:\xampp\htdocs\duan1\backend\protected\modules\CauHoi\controllers\TestController.php:19)
+Stack trace:
+#0 E:\xampp\htdocs\duan1\framework\web\CController.php(286): TestController->runAction()
+#1 E:\xampp\htdocs\duan1\framework\web\CController.php(265): TestController->runActionWithFilters()
+#2 E:\xampp\htdocs\duan1\framework\web\CWebApplication.php(282): TestController->run()
+#3 E:\xampp\htdocs\duan1\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 E:\xampp\htdocs\duan1\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#5 E:\xampp\htdocs\duan1\backend\index.php(20): CWebApplication->run()
+REQUEST_URI=/duan1/backend/index.php?r=CauHoi/test/create
+in E:\xampp\htdocs\duan1\backend\protected\modules\CauHoi\controllers\TestController.php (19)
+in E:\xampp\htdocs\duan1\backend\index.php (20)
+2014/11/20 23:12:16 [error] [php] Undefined variable: typeImage (E:\xampp\htdocs\duan1\backend\protected\modules\CauHoi\controllers\TestController.php:19)
+Stack trace:
+#0 E:\xampp\htdocs\duan1\framework\web\CController.php(286): TestController->runAction()
+#1 E:\xampp\htdocs\duan1\framework\web\CController.php(265): TestController->runActionWithFilters()
+#2 E:\xampp\htdocs\duan1\framework\web\CWebApplication.php(282): TestController->run()
+#3 E:\xampp\htdocs\duan1\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 E:\xampp\htdocs\duan1\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#5 E:\xampp\htdocs\duan1\backend\index.php(20): CWebApplication->run()
+REQUEST_URI=/duan1/backend/index.php?r=CauHoi/test/create
+in E:\xampp\htdocs\duan1\backend\protected\modules\CauHoi\controllers\TestController.php (19)
+in E:\xampp\htdocs\duan1\backend\index.php (20)

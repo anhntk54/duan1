@@ -9,9 +9,11 @@
         if (!is_dir($name_root_directory))
         {
             mkdir($name_root_directory, 0777);
-                mkdir($name_root_directory.'thumbai_100', 0777);
-                mkdir($name_root_directory.'thumbai_300', 0777);
-                mkdir($name_root_directory.'slide_640_350', 0777);
+            // sẽ up và lấy theo giờ như hồi làm aegame nhé cưng
+            
+                //mkdir($name_root_directory.'thumbai_100', 0777);
+                //mkdir($name_root_directory.'thumbai_300', 0777);
+                //mkdir($name_root_directory.'slide_640_350', 0777);
                 //mkdir($name_root_directory.'_300', 0777);
                     //mkdir($name_root_directory.'Banner/originimage', 0777);
                     //mkdir($name_root_directory.'Banner/resize', 0777);
