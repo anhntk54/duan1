@@ -23,9 +23,9 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'tien_toi_thieu'); ?>
-		<?php echo $form->textField($model,'tien_toi_thieu'); ?>
-		<?php echo $form->error($model,'tien_toi_thieu'); ?>
+		<?php echo $form->labelEx($model,'cap_do'); ?>
+		<?php echo $form->textField($model,'cap_do'); ?>
+		<?php echo $form->error($model,'cap_do'); ?>
 	</div>
 	<?php $image = ''; ?>
 	<?php if (!$model->isNewRecord && $model->hinh_anh != '') {

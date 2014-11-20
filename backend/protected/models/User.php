@@ -44,7 +44,10 @@ class User extends CActiveRecord
 			array('id, username, facebook_id, email, password, ten_day_du, avatar, level_id', 'safe', 'on'=>'search'),
 		);
 	}
-
+	public static function MaHoaMatKhau($value)
+	{
+		return md5(md5(sha1(base64_encode(md5($value))))."thachdo-!@#$%^&*");
+	}
 	/**
 	 * @return array relational rules.
 	 */

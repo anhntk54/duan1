@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `tbl_config` (
   `value` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `status` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
 
 -- -------------------------------------------
 -- TABLE `tbl_hanhdong`
@@ -64,6 +64,17 @@ CREATE TABLE IF NOT EXISTS `tbl_hanhdong` (
   `noi_dung` varchar(300) COLLATE utf32_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
+
+-- -------------------------------------------
+-- TABLE `tbl_hengio`
+-- -------------------------------------------
+DROP TABLE IF EXISTS `tbl_hengio`;
+CREATE TABLE IF NOT EXISTS `tbl_hengio` (
+  `ten` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `gia_tri` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- -------------------------------------------
 -- TABLE `tbl_khieunai`
@@ -88,10 +99,21 @@ DROP TABLE IF EXISTS `tbl_level`;
 CREATE TABLE IF NOT EXISTS `tbl_level` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `ten` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `tien_toi_thieu` float NOT NULL,
   `hinh_anh` varchar(250) COLLATE utf32_unicode_ci NOT NULL,
+  `cap_do` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
+
+-- -------------------------------------------
+-- TABLE `tbl_level_tien`
+-- -------------------------------------------
+DROP TABLE IF EXISTS `tbl_level_tien`;
+CREATE TABLE IF NOT EXISTS `tbl_level_tien` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `level_id` int(11) NOT NULL,
+  `tien` float NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- -------------------------------------------
 -- TABLE `tbl_loaigiaodich`
@@ -232,7 +254,7 @@ CREATE TABLE IF NOT EXISTS `tbl_taikhoan` (
   `tien_nap` float NOT NULL,
   `tai_khoan` float NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
 
 -- -------------------------------------------
 -- TABLE `tbl_traloi`
@@ -264,7 +286,7 @@ CREATE TABLE IF NOT EXISTS `tbl_user` (
   `avatar` varchar(200) COLLATE utf32_unicode_ci NOT NULL,
   `level_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
 
 -- -------------------------------------------
 -- TABLE DATA tbl_admin
@@ -281,14 +303,26 @@ INSERT INTO `tbl_config` (`id`,`name`,`value`,`status`) VALUES
 ('14','logo','1416131678-img4693jpg.JPG','1');
 INSERT INTO `tbl_config` (`id`,`name`,`value`,`status`) VALUES
 ('15','tiencuoc','1','0');
+INSERT INTO `tbl_config` (`id`,`name`,`value`,`status`) VALUES
+('16','tiennguoidung','100000','0');
 
 
 
 -- -------------------------------------------
 -- TABLE DATA tbl_level
 -- -------------------------------------------
-INSERT INTO `tbl_level` (`id`,`ten`,`tien_toi_thieu`,`hinh_anh`) VALUES
-('1','1','1','1416194707-10358729654706094643311133203556448728575njpg.png');
+INSERT INTO `tbl_level` (`id`,`ten`,`hinh_anh`,`cap_do`) VALUES
+('1','Thổ dân','1416194707-10358729654706094643311133203556448728575njpg.png','0');
+INSERT INTO `tbl_level` (`id`,`ten`,`hinh_anh`,`cap_do`) VALUES
+('2','Đại gia','','3');
+
+
+
+-- -------------------------------------------
+-- TABLE DATA tbl_taikhoan
+-- -------------------------------------------
+INSERT INTO `tbl_taikhoan` (`id`,`user_id`,`tien_thang`,`tien_thua`,`tien_nap`,`tai_khoan`) VALUES
+('1','7','0','0','0','100000');
 
 
 
@@ -303,6 +337,8 @@ INSERT INTO `tbl_user` (`id`,`username`,`facebook_id`,`email`,`password`,`ten_da
 ('4','Naruto','0','Naruto@gmail.com','','Naruto','1416293210-avatar004jpg.png','0');
 INSERT INTO `tbl_user` (`id`,`username`,`facebook_id`,`email`,`password`,`ten_day_du`,`avatar`,`level_id`) VALUES
 ('5','the','0','thedm@gmail.com','','Lê Quang Thế','1416293249-avatar001jpg.png','0');
+INSERT INTO `tbl_user` (`id`,`username`,`facebook_id`,`email`,`password`,`ten_day_du`,`avatar`,`level_id`) VALUES
+('7','trieunhu','0','anhntk54@gmail.com123','c1305cdbfe5daa6e11c76f3e6c6cb745','Nhữ Tuấn Anh','1416412991-img4759jpg.png','0');
 
 
 

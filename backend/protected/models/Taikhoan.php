@@ -29,7 +29,7 @@ class Taikhoan extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_id, tien_thang, tien_thua, tien_nap, tai_khoan', 'required'),
+			array('user_id, tai_khoan', 'required'),
 			array('user_id', 'numerical', 'integerOnly'=>true),
 			array('tien_thang, tien_thua, tien_nap, tai_khoan', 'numerical'),
 			// The following rule is used by search().
