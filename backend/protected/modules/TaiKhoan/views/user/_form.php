@@ -43,7 +43,7 @@
 	</div>
 	<?php $image = ''; ?>
 	<?php if (!$model->isNewRecord && $model->avatar != '') {
-		$image = Yii::app()->request->baseUrl.'/../'.AVATAR.$model->avatar;
+		$image = Yii::app()->request->baseUrl.'/../'.$model->avatar;
 	} ?>
 	<?php $this->widget("TaiKhoan.components.UploadImage",array('name'=>'avatar','form'=>$form,'model'=>$model,'image'=>$image)); ?>
 	<div class="row buttons">

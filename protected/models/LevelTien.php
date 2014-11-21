@@ -1,24 +1,21 @@
 <?php
 
 /**
- * This is the model class for table "tbl_config".
+ * This is the model class for table "tbl_level_tien".
  *
- * The followings are the available columns in table 'tbl_config':
+ * The followings are the available columns in table 'tbl_level_tien':
  * @property integer $id
- * @property string $name
- * @property string $value
- * @property integer $status
+ * @property integer $level_id
+ * @property double $tien
  */
-class Config extends CActiveRecord
+class LevelTien extends CActiveRecord
 {
-	public $data_value;
-	public $data_file;
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'tbl_config';
+		return 'tbl_level_tien';
 	}
 
 	/**
@@ -29,15 +26,12 @@ class Config extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, status,data_value', 'required','on'=>'value'),
-			array('name, status,value', 'required','on'=>'file'),
-			array('status', 'numerical', 'integerOnly'=>true),
-			array('name', 'length', 'max'=>50),
-			array('name', 'unique', 'message'=>'{attribute} đã được sử dụng'),
-			array('value,data_value,data_file', 'length', 'max'=>250),
+			array('level_id, tien', 'required'),
+			array('level_id', 'numerical', 'integerOnly'=>true),
+			array('tien', 'numerical'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, value, status', 'safe', 'on'=>'search'),
+			array('id, level_id, tien', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -49,6 +43,7 @@ class Config extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'level'=> array(self::BELONGS_TO,'Level','level_id'),
 		);
 	}
 
@@ -59,10 +54,8 @@ class Config extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'name' => 'Tên',
-			'value' => 'Giá trị',
-			'status' => 'Trạng thái',
-			'data_value'=>"Giá trị"
+			'level_id' => 'Level',
+			'tien' => 'Tien',
 		);
 	}
 
@@ -85,9 +78,8 @@ class Config extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('name',$this->name,true);
-		$criteria->compare('value',$this->value,true);
-		$criteria->compare('status',$this->status);
+		$criteria->compare('level_id',$this->level_id);
+		$criteria->compare('tien',$this->tien);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -98,19 +90,10 @@ class Config extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Config the static model class
+	 * @return LevelTien the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
-	}
-
-	public static function TienMacDinhCuaNguoiDung()
-	{
-		$model = Config::model()->findByAttributes(array('name'=>'tiennguoidung'));
-		if ($model != null) {
-			return $model->value;
-		}
-		return 0;
 	}
 }

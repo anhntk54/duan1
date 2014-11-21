@@ -6,10 +6,12 @@
  * The followings are the available columns in table 'tbl_level':
  * @property integer $id
  * @property string $ten
- * @property double $tien_toi_thieu
+ * @property string $hinh_anh
+ * @property integer $cap_do
  */
 class Level extends CActiveRecord
 {
+	public $tien_toi_thieu;
 	/**
 	 * @return string the associated database table name
 	 */
@@ -26,13 +28,13 @@ class Level extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('ten, tien_toi_thieu', 'required'),
-			array('id', 'numerical', 'integerOnly'=>true),
-			array('tien_toi_thieu', 'numerical'),
+			array('ten', 'required'),
+			array('cap_do', 'numerical', 'integerOnly'=>true),
 			array('ten', 'length', 'max'=>50),
+			array('hinh_anh', 'length', 'max'=>250),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, ten, tien_toi_thieu', 'safe', 'on'=>'search'),
+			array('id, ten, hinh_anh, cap_do', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -55,7 +57,8 @@ class Level extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'ten' => 'Ten',
-			'tien_toi_thieu' => 'Tien Toi Thieu',
+			'hinh_anh' => 'Hinh Anh',
+			'cap_do' => 'Cap Do',
 		);
 	}
 
@@ -79,7 +82,8 @@ class Level extends CActiveRecord
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('ten',$this->ten,true);
-		$criteria->compare('tien_toi_thieu',$this->tien_toi_thieu);
+		$criteria->compare('hinh_anh',$this->hinh_anh,true);
+		$criteria->compare('cap_do',$this->cap_do);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

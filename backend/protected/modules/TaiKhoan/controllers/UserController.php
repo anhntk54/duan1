@@ -66,7 +66,7 @@ class UserController extends Controller
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-
+		echo AVATAR;
 		if(isset($_POST['User']))
 		{
 			$model->attributes=$_POST['User'];
@@ -74,8 +74,11 @@ class UserController extends Controller
 			$model->facebook_id = 0;
 			$model->avatar = CUploadedFile::getInstance($model, 'avatar');
 			if ($model->avatar != '') {
-				$image =  time()."-".toSlug($model->avatar).".png";
-            	$model->avatar->saveAs(Yii::app()->basePath.'/../../' .AVATAR.$image);
+				$path = '/../../';
+				$dir = Yii::app()->basePath.$path;
+				checkdirectory($dir.AVATAR);
+				$image =  AVATAR.time()."-".toSlug($model->avatar).".png";
+            	$model->avatar->saveAs($dir.$image);
             	$model->avatar = $image;
 			}
 			if ($model->password != '') {
@@ -86,7 +89,7 @@ class UserController extends Controller
 				$taikhoan->user_id = $model->id;
 				$taikhoan->tai_khoan = Config::TienMacDinhCuaNguoiDung();
 				$taikhoan->save();
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('admin'));
 			}
 		}
 
@@ -113,10 +116,13 @@ class UserController extends Controller
 			$model->avatar = CUploadedFile::getInstance($model, 'avatar');
 			if($model->validate()){
 				if ($model->avatar != '') {
-					$image =  time()."-".toSlug($model->avatar).".png";
-	            	$model->avatar->saveAs(Yii::app()->basePath .'/../../'.AVATAR.$image);
+					$path = '/../../';
+					$dir = Yii::app()->basePath.$path;
+					checkdirectory($dir.AVATAR);
+					$image =  AVATAR.time()."-".toSlug($model->avatar).".png";
+	            	$model->avatar->saveAs($dir.$image);
 	            	$model->avatar = $image;
-	            	$file = Yii::app()->basePath .'/../../'.AVATAR.$old_avatar;
+	            	$file = Yii::app()->basePath .'/../../'.$old_avatar;
 	            	if ($old_avatar != '' && file_exists($file)) {
 	            		unlink($file);
 	            	}
@@ -125,7 +131,7 @@ class UserController extends Controller
 				}
 			}
 			if($model->save()){
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('admin'));
 			}
 		}
 

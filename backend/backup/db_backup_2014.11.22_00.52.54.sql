@@ -113,7 +113,7 @@ CREATE TABLE IF NOT EXISTS `tbl_level_tien` (
   `level_id` int(11) NOT NULL,
   `tien` float NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 -- -------------------------------------------
 -- TABLE `tbl_loaigiaodich`
@@ -221,6 +221,7 @@ CREATE TABLE IF NOT EXISTS `tbl_quangcao` (
 DROP TABLE IF EXISTS `tbl_seo`;
 CREATE TABLE IF NOT EXISTS `tbl_seo` (
   `id` int(4) unsigned NOT NULL AUTO_INCREMENT,
+  `type` varchar(30) NOT NULL,
   `title` varchar(128) NOT NULL DEFAULT '',
   `description` varchar(255) DEFAULT NULL,
   `keywords` varchar(500) DEFAULT NULL,
@@ -254,7 +255,7 @@ CREATE TABLE IF NOT EXISTS `tbl_taikhoan` (
   `tien_nap` float NOT NULL,
   `tai_khoan` float NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
 
 -- -------------------------------------------
 -- TABLE `tbl_traloi`
@@ -286,7 +287,7 @@ CREATE TABLE IF NOT EXISTS `tbl_user` (
   `avatar` varchar(200) COLLATE utf32_unicode_ci NOT NULL,
   `level_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
 
 -- -------------------------------------------
 -- TABLE DATA tbl_admin
@@ -319,10 +320,22 @@ INSERT INTO `tbl_level` (`id`,`ten`,`hinh_anh`,`cap_do`) VALUES
 
 
 -- -------------------------------------------
+-- TABLE DATA tbl_level_tien
+-- -------------------------------------------
+INSERT INTO `tbl_level_tien` (`id`,`level_id`,`tien`) VALUES
+('1','1','100');
+INSERT INTO `tbl_level_tien` (`id`,`level_id`,`tien`) VALUES
+('2','1','300');
+
+
+
+-- -------------------------------------------
 -- TABLE DATA tbl_taikhoan
 -- -------------------------------------------
 INSERT INTO `tbl_taikhoan` (`id`,`user_id`,`tien_thang`,`tien_thua`,`tien_nap`,`tai_khoan`) VALUES
 ('1','7','0','0','0','100000');
+INSERT INTO `tbl_taikhoan` (`id`,`user_id`,`tien_thang`,`tien_thua`,`tien_nap`,`tai_khoan`) VALUES
+('2','8','0','0','0','100000');
 
 
 
@@ -330,15 +343,17 @@ INSERT INTO `tbl_taikhoan` (`id`,`user_id`,`tien_thang`,`tien_thua`,`tien_nap`,`
 -- TABLE DATA tbl_user
 -- -------------------------------------------
 INSERT INTO `tbl_user` (`id`,`username`,`facebook_id`,`email`,`password`,`ten_day_du`,`avatar`,`level_id`) VALUES
-('2','anhtrieunhu','0','anhntk54@gmail.com','','Triệu Nhữ','1416293126-avatar002jpg.png','0');
+('2','anhtrieunhu','0','anhntk54@gmail.com','','Triệu Nhữ','/images/users/avatar/2014-11-21/1416590780-avatar002jpg.png','0');
 INSERT INTO `tbl_user` (`id`,`username`,`facebook_id`,`email`,`password`,`ten_day_du`,`avatar`,`level_id`) VALUES
-('3','minhtien','0','minhtien@gmail.com','','Minh Tiến','1416293173-avatar003jpg.png','0');
+('3','minhtien','0','minhtien@gmail.com','','Minh Tiến','/images/users/avatar/2014-11-21/1416590803-avatar003jpg.png','0');
 INSERT INTO `tbl_user` (`id`,`username`,`facebook_id`,`email`,`password`,`ten_day_du`,`avatar`,`level_id`) VALUES
-('4','Naruto','0','Naruto@gmail.com','','Naruto','1416293210-avatar004jpg.png','0');
+('4','Naruto','0','Naruto@gmail.com','','Naruto','/images/users/avatar/2014-11-21/1416590825-avatar004jpg.png','0');
 INSERT INTO `tbl_user` (`id`,`username`,`facebook_id`,`email`,`password`,`ten_day_du`,`avatar`,`level_id`) VALUES
-('5','the','0','thedm@gmail.com','','Lê Quang Thế','1416293249-avatar001jpg.png','0');
+('5','the','0','thedm@gmail.com','','Lê Quang Thế','/images/users/avatar/2014-11-21/1416590842-img4759jpg.png','0');
 INSERT INTO `tbl_user` (`id`,`username`,`facebook_id`,`email`,`password`,`ten_day_du`,`avatar`,`level_id`) VALUES
-('7','trieunhu','0','anhntk54@gmail.com123','c1305cdbfe5daa6e11c76f3e6c6cb745','Nhữ Tuấn Anh','1416412991-img4759jpg.png','0');
+('7','trieunhu','0','anhntk54@gmail.com123','c1305cdbfe5daa6e11c76f3e6c6cb745','Nhữ Tuấn Anh','/images/users/avatar/2014-11-21/1416591207-img4652jpg.png','0');
+INSERT INTO `tbl_user` (`id`,`username`,`facebook_id`,`email`,`password`,`ten_day_du`,`avatar`,`level_id`) VALUES
+('8','tuananh','0','tuananh@gmail.com1','','1','/images/users/avatar/2014-11-21/1416584005-img4735jpg.png','0');
 
 
 
