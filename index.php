@@ -13,6 +13,11 @@ defined('YII_TRACE_LEVEL') or define('YII_TRACE_LEVEL',3);
 
 //dinh nghia thu muc
 define('AVATAR','../images/users/avatar/');
+/**
+Test image
+**/
+$_date = date("Y-m-d");
+define('CAUHOI_IMAGE','images/cauhoi/'.$_date.'/');
 
 require_once($yii);
 require_once($_config);
