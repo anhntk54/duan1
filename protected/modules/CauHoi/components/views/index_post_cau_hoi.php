@@ -1,0 +1,115 @@
+<div class="panel panel-default" id="form-post">
+	<div class="panel-body padding-bottom-0">
+		<div class="border-bottom">
+			<span class="small">
+				<b><i class="fa fa-pencil-square-o"></i> Thách đố mới</b>
+			</span>
+		</div>
+		<textarea class="textarea" placeholder="Thách đố nào..." id="noidung"></textarea>
+		<input type="text" class="input-control" placeholder="Bạn thách đố ai?" />
+		<div class="row">
+			<div class="col-sm-6">
+				<input type="text" class="input-control" placeholder="Thời hạn dừng?" />
+			</div>
+			<div class="col-sm-6">
+				<input type="text" class="input-control" placeholder="Số tiền cược" />
+			</div>
+            <div class="col-sm-6">
+                <img src="" class="img-responsive" id="image"/>
+            </div>
+		</div>
+        
+	</div>
+	<div class="panel-footer">
+		<!--<a href="#" data-toggle="tooltip" data-placement="top" title="Tooltip on top"><i class="fa fa-user"></i></a>
+		<a href="#" data-toggle="tooltip" data-placement="top" title="Tooltip on top"><i class="fa fa-clock-o"></i></a>
+		<a href="#" data-toggle="tooltip" data-placement="top" title="Tooltip on top"><i class="fa fa-usd"></i></a>
+        
+        <a href="#" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+            <i class="fa fa-camera"></i>
+        </a>
+        
+		<a href="#" data-toggle="tooltip" data-placement="top" title="Tooltip on top"><i class="fa fa-camera"></i></a>
+		-->
+        <input type="file" name="fileToUpload" id="fileToUpload" style=""/>
+        
+        <div class="pull-right">
+			<button class="btn btn-primary btn-sm" onclick="submit_cauhoi();">Đăng</button>
+		</div>
+	</div>
+</div>
+
+<script>
+var type_image;
+
+function TypeFile()
+{
+    var fup = document.getElementById('fileToUpload');
+    var fileName = fup.value;
+    var ext = fileName.substring(fileName.lastIndexOf('.') + 1);
+    if(ext == "gif" || ext == "GIF" || ext == "JPEG" || ext == "jpeg" || ext == "jpg" || ext == "JPG" || ext == "PNG" || ext == "png" )
+    {
+        return ext;
+    }
+}
+
+function fileSelect(evt) {
+    if (window.File && window.FileReader && window.FileList && window.Blob) {
+        var files = evt.target.files;
+        var result = '';
+        var file;
+        for (var i = 0; file = files[i]; i++) {
+            // if the file is not an image, continue
+            if (!file.type.match('image.*')) {
+                alert("Ảnh không đúng định dạng. Bạn vui lòng chọn ảnh khác!");
+                continue;
+            }
+            reader = new FileReader();
+            reader.onloadstart = function(e) { console.log("Bắt đầu"); }
+            reader.onload = (function (tFile) {
+                return function (evt) {
+                    type_image = TypeFile();
+                    $('#image').attr('src',evt.target.result);
+                    
+                };
+            }(file));
+            
+            reader.readAsDataURL(file);
+            reader.onloadend = function(e) { console.log("Kết thúc"); }
+            
+        }
+    } else {
+        alert('The File APIs are not fully supported in this browser.');
+    }
+}
+document.getElementById('fileToUpload').addEventListener('change', fileSelect, false);
+
+function submit_cauhoi(){
+    var noidung = $("#noidung").val();
+    var loai_image = type_image;
+    var base_image = $("#image").attr('src');
+    if(noidung != ""){
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo Yii::app()->createUrl('/CauHoi/default/create');?>',
+            data: {noidung : noidung, loai : loai_image, image : base_image},
+            success: function (data) {
+                $("#append_cauhoi").prepend(data);
+                refest_cauhoi();
+            },
+            error: function (ex) {
+                alert('Failed to retrieve states.' + ex);
+            }
+        });
+    }
+}
+
+function refest_cauhoi(){
+    $("#noidung").val("");
+    $("#image").attr('src','');
+}
+</script>
+
+<div id="append_cauhoi">
+
+</div>
