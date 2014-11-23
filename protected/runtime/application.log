@@ -4431,3 +4431,25 @@ Stack trace:
 REQUEST_URI=/thachdo/index.php?r=site/load
 HTTP_REFERER=http://localhost/thachdo/index.php?r=site/test
 ---
+2014/11/23 23:18:51 [error] [php] Creating default object from empty value (/Applications/XAMPP/xamppfiles/htdocs/thachdo/protected/modules/CauHoi/controllers/DefaultController.php:56)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CController.php(286): DefaultController->runAction()
+#1 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CController.php(265): DefaultController->runActionWithFilters()
+#2 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CWebApplication.php(282): DefaultController->run()
+#3 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /Applications/XAMPP/xamppfiles/htdocs/thachdo/index.php(25): CWebApplication->run()
+REQUEST_URI=/thachdo/index.php?r=CauHoi/default/create
+in /Applications/XAMPP/xamppfiles/htdocs/thachdo/protected/modules/CauHoi/controllers/DefaultController.php (56)
+in /Applications/XAMPP/xamppfiles/htdocs/thachdo/index.php (25)
+2014/11/23 23:21:50 [error] [php] Creating default object from empty value (/Applications/XAMPP/xamppfiles/htdocs/thachdo/protected/modules/CauHoi/controllers/DefaultController.php:56)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CController.php(286): DefaultController->runAction()
+#1 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CController.php(265): DefaultController->runActionWithFilters()
+#2 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CWebApplication.php(282): DefaultController->run()
+#3 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /Applications/XAMPP/xamppfiles/htdocs/thachdo/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /Applications/XAMPP/xamppfiles/htdocs/thachdo/index.php(25): CWebApplication->run()
+REQUEST_URI=/thachdo/index.php?r=CauHoi/default/create
+in /Applications/XAMPP/xamppfiles/htdocs/thachdo/protected/modules/CauHoi/controllers/DefaultController.php (56)
+in /Applications/XAMPP/xamppfiles/htdocs/thachdo/index.php (25)

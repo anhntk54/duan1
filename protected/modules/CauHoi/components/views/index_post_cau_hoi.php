@@ -6,7 +6,8 @@
 			</span>
 		</div>
 		<textarea class="textarea" placeholder="Thách đố nào..." id="noidung"></textarea>
-		<input type="text" class="input-control" placeholder="Bạn thách đố ai?" />
+        <!-- by trieu nhu -->
+		<?php $this->widget("CauHoi.components.Index_Post_Tag_Cau_Hoi");?>
 		<div class="row">
 			<div class="col-sm-6">
 				<input type="text" class="input-control" placeholder="Thời hạn dừng?" />
@@ -21,17 +22,14 @@
         
 	</div>
 	<div class="panel-footer">
-		<!--<a href="#" data-toggle="tooltip" data-placement="top" title="Tooltip on top"><i class="fa fa-user"></i></a>
+		<a href="#" data-toggle="tooltip" data-placement="top" title="Tooltip on top"><i class="fa fa-user"></i></a>
 		<a href="#" data-toggle="tooltip" data-placement="top" title="Tooltip on top"><i class="fa fa-clock-o"></i></a>
 		<a href="#" data-toggle="tooltip" data-placement="top" title="Tooltip on top"><i class="fa fa-usd"></i></a>
         
-        <a href="#" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+        <a id="a_camera" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
             <i class="fa fa-camera"></i>
         </a>
-        
-		<a href="#" data-toggle="tooltip" data-placement="top" title="Tooltip on top"><i class="fa fa-camera"></i></a>
-		-->
-        <input type="file" name="fileToUpload" id="fileToUpload" style=""/>
+        <input type="file" name="fileToUpload" id="fileToUpload" style="display:none;"/>
         
         <div class="pull-right">
 			<button class="btn btn-primary btn-sm" onclick="submit_cauhoi();">Đăng</button>
@@ -41,7 +39,9 @@
 
 <script>
 var type_image;
-
+$('#a_camera').click(function(event) {
+    $('#fileToUpload').click();
+});
 function TypeFile()
 {
     var fup = document.getElementById('fileToUpload');
@@ -92,7 +92,7 @@ function submit_cauhoi(){
         $.ajax({
             type: 'POST',
             url: '<?php echo Yii::app()->createUrl('/CauHoi/default/create');?>',
-            data: {noidung : noidung, loai : loai_image, image : base_image},
+            data: {noidung : noidung,users:JSON.stringify(arr_user), loai : loai_image, image : base_image},
             success: function (data) {
                 $("#append_cauhoi").prepend(data);
                 refest_cauhoi();
@@ -107,6 +107,7 @@ function submit_cauhoi(){
 function refest_cauhoi(){
     $("#noidung").val("");
     $("#image").attr('src','');
+    $('#tag_banbe').tokenfield('setTokens', "");
 }
 </script>
 

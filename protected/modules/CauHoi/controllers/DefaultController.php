@@ -45,7 +45,23 @@ class DefaultController extends Controller
             $model->noi_dung = $noidung;
             $model->anh_minhhoa = $file;
             $model->save(false);
-            
+            // by trieu nhu
+            if (isset($_POST['users'])) {
+                $users = json_decode($_POST['users'],true);
+                foreach ($users as $key){
+                    $user = User::model()->findByPk($key);
+                    if ($user != null) {
+                        $tag = Tag::model()->findByAttributes(array('cauhoi_id'=>$model->id,'user_id'=>$key));
+                        if ($tag == null) {
+                            $tag = new Tag;
+                            $tag->cauhoi_id = $model->id;
+                            $tag->user_id = $key;
+                            $tag->save(false);
+
+                        }
+                    }
+                }
+            }
             
             $this->renderPartial("append_post_cau_hoi",array("model"=>$model),false,true);
         }  

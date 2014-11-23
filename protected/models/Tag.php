@@ -28,7 +28,7 @@ class Tag extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('cauhoi_id, user_id, trangthai_chapnhan, thoigian_chapnhan', 'required'),
+			array('cauhoi_id, user_id', 'required'),
 			array('cauhoi_id, user_id, trangthai_chapnhan', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
