@@ -1,15 +1,4 @@
-<div class="panel panel-default">
-							<div class="panel-body text-center">
-								<img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/people/avatar_001.jpg" class="img-circle img-120 img-responsive margin-auto" />
-								<h2 class="text-center">Thế Lê</h2>
-								<p>Đại phú ông</p>
-								<small class="text-color-aaa">
-									<span class="margin-right"><i class="fa fa-usd"></i> 5.234.879</span>
-									<span class="margin-right"><i class="fa fa-question-circle"></i> 1380</span>
-									<span class="margin-right"><i class="fa fa-comment"></i> 3476</span>
-								</small>
-							</div>
-						</div>
+<?php $this->widget('TaiKhoan.components.Index_ThongTin_NguoiDung'); ?>
 <div class="panel panel-default" id="content-right-gluck">
 							<div class="panel-heading">
 								<h3 class="panel-title">Thách đố chưa trả lời <span class="badge badge-danger pull-right">5</span></h3>

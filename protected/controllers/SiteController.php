@@ -41,7 +41,7 @@ class SiteController extends Controller
 			$model = new LoginForm;
 			$model->username = $user->username;
 			if ($model->login()) {
-				$this->redirect(array('index'));
+				$this->redirect(array('/CauHoi/default/index'));
 			}
 		}		
 	}

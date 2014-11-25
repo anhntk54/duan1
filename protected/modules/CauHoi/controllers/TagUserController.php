@@ -14,7 +14,7 @@ class TagUserController extends Controller
 			$arrs = array();$i=0;
 			foreach ($model as $key => $value) {
 				$arr =array(
-					'name'=>$value->username,
+					'name'=>$value->ten_day_du,
 					'id' =>$value->id,
 					'image'=>Yii::app()->request->baseUrl.$value->avatar,
 				);

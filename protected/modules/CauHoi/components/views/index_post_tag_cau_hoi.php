@@ -55,8 +55,6 @@
 	                    .appendTo( ul );
 	            },
 			    select: function( event, ui ) {
-			    	var str = '<input type="hidden" name="user[]" value="'+ui.item.id+'">';
-			    	$('#div_tag_ban_be').append(str);
 			    	arr_user.push(ui.item.id);
 					return false;
 				},

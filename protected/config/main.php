@@ -16,6 +16,7 @@ $t = array(
 
 	'modules'=>array(
         'CauHoi', 
+        'TaiKhoan',
 	),
 
 	// application components

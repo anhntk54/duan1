@@ -56,6 +56,7 @@ class User extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'level'=> array(self::BELONGS_TO,'Level','level_id'),
 		);
 	}
 
@@ -117,5 +118,9 @@ class User extends CActiveRecord
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
+	}
+	public static function getAvatar($value,$class = 'img-circle img-120 img-responsive margin-auto')
+	{
+		return '<img src="'.Yii::app()->request->baseUrl.$value->avatar.'" class="'.$class.'" />';
 	}
 }
