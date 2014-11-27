@@ -9,12 +9,9 @@
         <!-- by trieu nhu -->
 		<?php $this->widget("CauHoi.components.Index_Post_Tag_Cau_Hoi");?>
 		<div class="row">
-			<div class="col-sm-6">
-				<input type="text" class="input-control" placeholder="Thời hạn dừng?" />
-			</div>
-			<div class="col-sm-6">
-				<input type="text" class="input-control" placeholder="Số tiền cược" />
-			</div>
+			<?php $this->widget("Index_Post_Hen_Gio");?>
+            
+			<?php $this->widget("Index_Post_Level_Tien");?>
             <div class="col-sm-6">
                 <img src="" class="img-responsive" id="image"/>
             </div>
