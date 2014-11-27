@@ -4570,3 +4570,69 @@ Stack trace:
 #29 {main}
 REQUEST_URI=/duan1/index.php?r=CauHoi/default/index
 ---
+2014/11/27 23:30:19 [error] [php] Undefined variable: nowtime (E:\xampp\htdocs\duan1\protected\modules\CauHoi\controllers\DefaultController.php:17)
+Stack trace:
+#0 E:\xampp\htdocs\duan1\framework\web\CController.php(286): DefaultController->runAction()
+#1 E:\xampp\htdocs\duan1\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 E:\xampp\htdocs\duan1\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 E:\xampp\htdocs\duan1\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 E:\xampp\htdocs\duan1\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#5 E:\xampp\htdocs\duan1\index.php(25): CWebApplication->run()
+REQUEST_URI=/duan1/index.php?r=CauHoi/default/create
+in E:\xampp\htdocs\duan1\protected\modules\CauHoi\controllers\DefaultController.php (17)
+in E:\xampp\htdocs\duan1\index.php (25)
+2014/11/27 23:30:20 [error] [php] Undefined variable: nowtime (E:\xampp\htdocs\duan1\protected\modules\CauHoi\controllers\DefaultController.php:17)
+Stack trace:
+#0 E:\xampp\htdocs\duan1\framework\web\CController.php(286): DefaultController->runAction()
+#1 E:\xampp\htdocs\duan1\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 E:\xampp\htdocs\duan1\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 E:\xampp\htdocs\duan1\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 E:\xampp\htdocs\duan1\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#5 E:\xampp\htdocs\duan1\index.php(25): CWebApplication->run()
+REQUEST_URI=/duan1/index.php?r=CauHoi/default/create
+in E:\xampp\htdocs\duan1\protected\modules\CauHoi\controllers\DefaultController.php (17)
+in E:\xampp\htdocs\duan1\index.php (25)
+2014/11/27 23:30:41 [error] [php] Undefined variable: nowtime (E:\xampp\htdocs\duan1\protected\modules\CauHoi\controllers\DefaultController.php:17)
+Stack trace:
+#0 E:\xampp\htdocs\duan1\framework\web\CController.php(286): DefaultController->runAction()
+#1 E:\xampp\htdocs\duan1\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 E:\xampp\htdocs\duan1\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 E:\xampp\htdocs\duan1\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 E:\xampp\htdocs\duan1\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#5 E:\xampp\htdocs\duan1\index.php(25): CWebApplication->run()
+REQUEST_URI=/duan1/index.php?r=CauHoi/default/create
+in E:\xampp\htdocs\duan1\protected\modules\CauHoi\controllers\DefaultController.php (17)
+in E:\xampp\htdocs\duan1\index.php (25)
+2014/11/27 23:31:07 [error] [php] Undefined variable: nowtime (E:\xampp\htdocs\duan1\protected\modules\CauHoi\controllers\DefaultController.php:17)
+Stack trace:
+#0 E:\xampp\htdocs\duan1\framework\web\CController.php(286): DefaultController->runAction()
+#1 E:\xampp\htdocs\duan1\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 E:\xampp\htdocs\duan1\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 E:\xampp\htdocs\duan1\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 E:\xampp\htdocs\duan1\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#5 E:\xampp\htdocs\duan1\index.php(25): CWebApplication->run()
+REQUEST_URI=/duan1/index.php?r=CauHoi/default/create
+in E:\xampp\htdocs\duan1\protected\modules\CauHoi\controllers\DefaultController.php (17)
+in E:\xampp\htdocs\duan1\index.php (25)
+2014/11/27 23:33:53 [error] [php] Undefined variable: nowtime (E:\xampp\htdocs\duan1\protected\modules\CauHoi\controllers\DefaultController.php:17)
+Stack trace:
+#0 E:\xampp\htdocs\duan1\framework\web\CController.php(286): DefaultController->runAction()
+#1 E:\xampp\htdocs\duan1\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 E:\xampp\htdocs\duan1\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 E:\xampp\htdocs\duan1\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 E:\xampp\htdocs\duan1\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#5 E:\xampp\htdocs\duan1\index.php(25): CWebApplication->run()
+REQUEST_URI=/duan1/index.php?r=CauHoi/default/create
+in E:\xampp\htdocs\duan1\protected\modules\CauHoi\controllers\DefaultController.php (17)
+in E:\xampp\htdocs\duan1\index.php (25)
+2014/11/27 23:35:25 [error] [php] Undefined variable: nowtime (E:\xampp\htdocs\duan1\protected\modules\CauHoi\controllers\DefaultController.php:17)
+Stack trace:
+#0 E:\xampp\htdocs\duan1\framework\web\CController.php(286): DefaultController->runAction()
+#1 E:\xampp\htdocs\duan1\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 E:\xampp\htdocs\duan1\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 E:\xampp\htdocs\duan1\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 E:\xampp\htdocs\duan1\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#5 E:\xampp\htdocs\duan1\index.php(25): CWebApplication->run()
+REQUEST_URI=/duan1/index.php?r=CauHoi/default/create
+in E:\xampp\htdocs\duan1\protected\modules\CauHoi\controllers\DefaultController.php (17)
+in E:\xampp\htdocs\duan1\index.php (25)

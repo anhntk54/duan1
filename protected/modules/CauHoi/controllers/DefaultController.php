@@ -10,10 +10,16 @@ class DefaultController extends Controller
     
     public function actionCreate(){
         $model = new Cauhoi;
-        if(isset($_POST['noidung'])){
-            
-            
+        if(isset($_POST['noidung']) and isset($_POST['hengio'])){
             $noidung = $_POST['noidung'];
+            $hengio = $_POST['hengio'];
+            $nowdate = date("Y-m-d H:i:s");
+            $date_hengio = date('Y-m-d H:i:s', strtotime($nowdate . ' + '.$hengio.' hours'));
+            
+            $tiencuoc = 0;
+            if(isset($_POST['tien'])){
+                $tiencuoc = $_POST['tien'];
+            }
             $file = "";
             if(isset($_POST['image']) && isset($_POST['loai'])){
                 $type_image = $_POST['loai'];
@@ -44,6 +50,8 @@ class DefaultController extends Controller
             $model->user_id = Yii::app()->user->id;
             $model->noi_dung = $noidung;
             $model->anh_minhhoa = $file;
+            $model->tien_cuoc = $tiencuoc;
+            $model->hen_gio = $date_hengio;
             $model->save(false);
             // by trieu nhu
             if (isset($_POST['users'])) {

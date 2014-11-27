@@ -85,11 +85,14 @@ function submit_cauhoi(){
     var noidung = $("#noidung").val();
     var loai_image = type_image;
     var base_image = $("#image").attr('src');
-    if(noidung != ""){
+    var hen_gio = $("#hen-gio-thach-do").val();
+    var tien_thachdo = $("#tien-cuoc-thach-do").val();
+    
+    if(noidung != "" && hen_gio != 0){
         $.ajax({
             type: 'POST',
             url: '<?php echo Yii::app()->createUrl('/CauHoi/default/create');?>',
-            data: {noidung : noidung,users:JSON.stringify(arr_user), loai : loai_image, image : base_image},
+            data: {noidung : noidung, users:JSON.stringify(arr_user), loai : loai_image, image : base_image, hengio : hen_gio, tien : tien_thachdo },
             success: function (data) {
                 $("#append_cauhoi").prepend(data);
                 refest_cauhoi();
