@@ -9,8 +9,6 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'Tạo cấu hình mới', 'url'=>array('create')),
-	array('label'=>'Quản lý nội dung hành động', 'url'=>array('/Config/hanhdong/admin')),
-	array('label'=>'Quản lý level người dùng', 'url'=>array('/Config/level/admin')),
 );
 ?>
 
