@@ -6,7 +6,6 @@ class Index_List_Cau_Hoi extends CWidget{
         $criteria->order ="id DESC";
         
         $model = Cauhoi::model()->findAll($criteria);
-        
         $this->render("index_list_cau_hoi",array('model'=>$model));
     }
 }

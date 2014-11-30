@@ -31,6 +31,8 @@
 				array('label'=>'Người dùng', 'url'=>array('/TaiKhoan/user/admin'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Cấu hình', 'url'=>array('/Config/config/admin'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Seo', 'url'=>array('/Config/seo/admin'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Hành động', 'url'=>array('//Config/hanhdong/admin'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Level', 'url'=>array('/Config/level/admin'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Backup', 'url'=>array('/backup/default/'), 'visible'=>!Yii::app()->user->isGuest),
                 array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
 			),
