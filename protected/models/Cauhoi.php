@@ -57,6 +57,9 @@ class Cauhoi extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'user'=> array(self::BELONGS_TO,'User','user_id'),
+			'tralois' =>array(self::HAS_MANY,'Traloi','cauhoi_id'),
+			'likes' =>array(self::HAS_MANY,'Like','table_id','on'=>'table_name ="C"'),
 		);
 	}
 
@@ -134,5 +137,40 @@ class Cauhoi extends CActiveRecord
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
+	}
+	public static function getHinhAnhMinhHoa($value,$class = 'img-responsive')
+	{
+		if ($value != null && $value->anh_minhhoa != '') {
+			return '<img src="'.Yii::app()->request->baseUrl.'/'.$value->anh_minhhoa.'" class="'.$class.'" />';
+		}
+		return '';
+	}
+	public static function KiemTraLikeCuaNguoiDung($value)
+	{
+		$str = "Thích";
+		if (!Yii::app()->user->isGuest) {
+			$user = User::model()->findByPk(Yii::app()->user->id);
+			if ($user != null && $value != null) {
+				$like = Like::model()->findByAttributes(array('user_id'=>$user->id,'table_id'=>$value->id,'table_name'=>'C'));
+				if ($like != null) {
+					$str = "Không thích";
+				}
+			}
+		}
+		return $str;
+	}
+	public static function TongSoLuotLike($value)
+	{
+		if ($value != null) {
+			return count($value->likes);
+		}
+		return 0;
+	}
+	public static function TongSoLuotTraLoi($value)
+	{
+		if ($value != null) {
+			return count($value->tralois);
+		}
+		return 0;
 	}
 }
