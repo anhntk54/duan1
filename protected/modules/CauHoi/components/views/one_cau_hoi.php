@@ -1,11 +1,14 @@
-<div class="panel panel-default">
+<div class="panel panel-default one_cau_hoi">
+	<input type="hidden" class="cauhoi_id" value="<?php echo $value->id; ?>">
 	<div class="panel-body">
 		<div class="media form-group">
-			<img class="pull-left media-object img-40" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/people/avatar_002.jpg" alt="">
+			<?php 
+				if ($value->user != null) {
+					echo User::getAvatar($value->user,'pull-left media-object img-40');
+				}
+			?>
 			<div class="media-body">
-				<a href="#">
-					<b>Triệu Nhữ</b>
-				</a>
+				<?php echo User::getTenDayDu($value->user); ?>
 				<small>
 					<span><i class="fa fa-clock-o"></i> 12:12:03</span>
 				</small>
@@ -15,9 +18,9 @@
 			</a>
 		</div>
 		<p><?php echo $value->noi_dung;?></p>
-        <p><img src="<?php echo Yii::app()->baseUrl."/".$value->anh_minhhoa;?>" class="img-responsive"></p>
+        <p><?php echo Cauhoi::getHinhAnhMinhHoa($value); ?></p>
 		<small>
-			<a href="#" class="margin-right">Thích</a>
+			<a class="margin-right cau_hoi_like"><?php echo Cauhoi::KiemTraLikeCuaNguoiDung($value); ?></a>
 			<a href="#" class="margin-right">Trả lời</a>
 			<a href="#">Chia sẻ</a>
 		</small>
@@ -26,12 +29,12 @@
 		<div class="form-group border-bottom">
 			<small class="text-color-666">
 				<a href="#">
-					<span class="margin-right"><i class="fa fa-comments"></i> 14</span>
-					<span class="margin-right"><i class="fa fa-thumbs-o-up"></i> 123</span>
+					<span class="margin-right"><i class="fa fa-comments"></i><span class="so-luot-tra-loi"><?php echo Cauhoi::TongSoLuotTraLoi($value); ?></span></span>
+					<span class="margin-right"><i class="fa fa-thumbs-o-up"></i> <span class="so-luot-like"><?php echo Cauhoi::TongSoLuotLike($value); ?></span></span>
 					<span class="margin-right"><i class="fa fa-share"></i> 3</span>
 				</a>
 			</small>
 		</div>
-		<?php $this->widget("CauHoi.components.List_Cau_Tra_Loi"); ?>
+		<?php $this->widget("CauHoi.components.List_Cau_Tra_Loi",array('model'=>$value)); ?>
 	</div>
 </div>

@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `tbl_cauhoi` (
   `tongtien_duoc` float NOT NULL,
   `tongtien_khieunai` float NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
 
 -- -------------------------------------------
 -- TABLE `tbl_config`
@@ -114,6 +114,18 @@ CREATE TABLE IF NOT EXISTS `tbl_level_tien` (
   `tien` float NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+-- -------------------------------------------
+-- TABLE `tbl_like`
+-- -------------------------------------------
+DROP TABLE IF EXISTS `tbl_like`;
+CREATE TABLE IF NOT EXISTS `tbl_like` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `table_id` int(11) NOT NULL,
+  `table_name` varchar(10) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
 
 -- -------------------------------------------
 -- TABLE `tbl_loaigiaodich`
@@ -241,7 +253,7 @@ CREATE TABLE IF NOT EXISTS `tbl_tag` (
   `trangthai_chapnhan` int(11) NOT NULL,
   `thoigian_chapnhan` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
 
 -- -------------------------------------------
 -- TABLE `tbl_taikhoan`
@@ -271,7 +283,7 @@ CREATE TABLE IF NOT EXISTS `tbl_traloi` (
   `trangthai_dungsai` int(11) NOT NULL,
   `thoigian_traloi` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
 
 -- -------------------------------------------
 -- TABLE `tbl_user`
@@ -294,6 +306,44 @@ CREATE TABLE IF NOT EXISTS `tbl_user` (
 -- -------------------------------------------
 INSERT INTO `tbl_admin` (`id`,`username`,`password`) VALUES
 ('2','trieunhu','4650168ea55d0b7102199e86f9de5988');
+
+
+
+-- -------------------------------------------
+-- TABLE DATA tbl_cauhoi
+-- -------------------------------------------
+INSERT INTO `tbl_cauhoi` (`id`,`user_id`,`noi_dung`,`anh_minhhoa`,`tra_loi`,`anh_traloi`,`tien_cuoc`,`hen_gio`,`thoigian_traloi`,`luot_thich`,`luot_xem`,`trang_thai`,`thoigian_tao`,`tongtien_mat`,`tongtien_duoc`,`tongtien_khieunai`) VALUES
+('1','7','Bắt đầu nào :)','','','','0','0000-00-00 00:00:00','0000-00-00 00:00:00','0','0','0','0','0','0','0');
+INSERT INTO `tbl_cauhoi` (`id`,`user_id`,`noi_dung`,`anh_minhhoa`,`tra_loi`,`anh_traloi`,`tien_cuoc`,`hen_gio`,`thoigian_traloi`,`luot_thich`,`luot_xem`,`trang_thai`,`thoigian_tao`,`tongtien_mat`,`tongtien_duoc`,`tongtien_khieunai`) VALUES
+('3','7','duy hâm','images/cauhoi/2014-11-30/cau-hoi-thach-do-547ae910791b3.png','','','0','0000-00-00 00:00:00','0000-00-00 00:00:00','0','0','0','0','0','0','0');
+INSERT INTO `tbl_cauhoi` (`id`,`user_id`,`noi_dung`,`anh_minhhoa`,`tra_loi`,`anh_traloi`,`tien_cuoc`,`hen_gio`,`thoigian_traloi`,`luot_thich`,`luot_xem`,`trang_thai`,`thoigian_tao`,`tongtien_mat`,`tongtien_duoc`,`tongtien_khieunai`) VALUES
+('4','7','dc chưa nào :)','','','','0','0000-00-00 00:00:00','0000-00-00 00:00:00','0','0','0','0','0','0','0');
+INSERT INTO `tbl_cauhoi` (`id`,`user_id`,`noi_dung`,`anh_minhhoa`,`tra_loi`,`anh_traloi`,`tien_cuoc`,`hen_gio`,`thoigian_traloi`,`luot_thich`,`luot_xem`,`trang_thai`,`thoigian_tao`,`tongtien_mat`,`tongtien_duoc`,`tongtien_khieunai`) VALUES
+('5','7','thách đố mới nào','','','','0','0000-00-00 00:00:00','0000-00-00 00:00:00','0','0','0','0','0','0','0');
+INSERT INTO `tbl_cauhoi` (`id`,`user_id`,`noi_dung`,`anh_minhhoa`,`tra_loi`,`anh_traloi`,`tien_cuoc`,`hen_gio`,`thoigian_traloi`,`luot_thich`,`luot_xem`,`trang_thai`,`thoigian_tao`,`tongtien_mat`,`tongtien_duoc`,`tongtien_khieunai`) VALUES
+('6','7','Đếm câu trả lời :P','','','','0','0000-00-00 00:00:00','0000-00-00 00:00:00','0','0','0','0','0','0','0');
+INSERT INTO `tbl_cauhoi` (`id`,`user_id`,`noi_dung`,`anh_minhhoa`,`tra_loi`,`anh_traloi`,`tien_cuoc`,`hen_gio`,`thoigian_traloi`,`luot_thich`,`luot_xem`,`trang_thai`,`thoigian_tao`,`tongtien_mat`,`tongtien_duoc`,`tongtien_khieunai`) VALUES
+('7','7','ajax','','','','0','0000-00-00 00:00:00','0000-00-00 00:00:00','0','0','0','0','0','0','0');
+INSERT INTO `tbl_cauhoi` (`id`,`user_id`,`noi_dung`,`anh_minhhoa`,`tra_loi`,`anh_traloi`,`tien_cuoc`,`hen_gio`,`thoigian_traloi`,`luot_thich`,`luot_xem`,`trang_thai`,`thoigian_tao`,`tongtien_mat`,`tongtien_duoc`,`tongtien_khieunai`) VALUES
+('8','7','ajax dược chưa','','','','0','0000-00-00 00:00:00','0000-00-00 00:00:00','0','0','0','0','0','0','0');
+INSERT INTO `tbl_cauhoi` (`id`,`user_id`,`noi_dung`,`anh_minhhoa`,`tra_loi`,`anh_traloi`,`tien_cuoc`,`hen_gio`,`thoigian_traloi`,`luot_thich`,`luot_xem`,`trang_thai`,`thoigian_tao`,`tongtien_mat`,`tongtien_duoc`,`tongtien_khieunai`) VALUES
+('9','7','dm','','','','0','0000-00-00 00:00:00','0000-00-00 00:00:00','0','0','0','0','0','0','0');
+INSERT INTO `tbl_cauhoi` (`id`,`user_id`,`noi_dung`,`anh_minhhoa`,`tra_loi`,`anh_traloi`,`tien_cuoc`,`hen_gio`,`thoigian_traloi`,`luot_thich`,`luot_xem`,`trang_thai`,`thoigian_tao`,`tongtien_mat`,`tongtien_duoc`,`tongtien_khieunai`) VALUES
+('10','7','dm được chưa','','','','0','0000-00-00 00:00:00','0000-00-00 00:00:00','0','0','0','0','0','0','0');
+INSERT INTO `tbl_cauhoi` (`id`,`user_id`,`noi_dung`,`anh_minhhoa`,`tra_loi`,`anh_traloi`,`tien_cuoc`,`hen_gio`,`thoigian_traloi`,`luot_thich`,`luot_xem`,`trang_thai`,`thoigian_tao`,`tongtien_mat`,`tongtien_duoc`,`tongtien_khieunai`) VALUES
+('11','7','sao éo dc','','','','0','0000-00-00 00:00:00','0000-00-00 00:00:00','0','0','0','0','0','0','0');
+INSERT INTO `tbl_cauhoi` (`id`,`user_id`,`noi_dung`,`anh_minhhoa`,`tra_loi`,`anh_traloi`,`tien_cuoc`,`hen_gio`,`thoigian_traloi`,`luot_thich`,`luot_xem`,`trang_thai`,`thoigian_tao`,`tongtien_mat`,`tongtien_duoc`,`tongtien_khieunai`) VALUES
+('12','7','dm dc chưa','','','','0','0000-00-00 00:00:00','0000-00-00 00:00:00','0','0','0','0','0','0','0');
+INSERT INTO `tbl_cauhoi` (`id`,`user_id`,`noi_dung`,`anh_minhhoa`,`tra_loi`,`anh_traloi`,`tien_cuoc`,`hen_gio`,`thoigian_traloi`,`luot_thich`,`luot_xem`,`trang_thai`,`thoigian_tao`,`tongtien_mat`,`tongtien_duoc`,`tongtien_khieunai`) VALUES
+('13','7','ajax','','','','0','0000-00-00 00:00:00','0000-00-00 00:00:00','0','0','0','0','0','0','0');
+INSERT INTO `tbl_cauhoi` (`id`,`user_id`,`noi_dung`,`anh_minhhoa`,`tra_loi`,`anh_traloi`,`tien_cuoc`,`hen_gio`,`thoigian_traloi`,`luot_thich`,`luot_xem`,`trang_thai`,`thoigian_tao`,`tongtien_mat`,`tongtien_duoc`,`tongtien_khieunai`) VALUES
+('14','7','dm chắc éo dc','','','','0','0000-00-00 00:00:00','0000-00-00 00:00:00','0','0','0','0','0','0','0');
+INSERT INTO `tbl_cauhoi` (`id`,`user_id`,`noi_dung`,`anh_minhhoa`,`tra_loi`,`anh_traloi`,`tien_cuoc`,`hen_gio`,`thoigian_traloi`,`luot_thich`,`luot_xem`,`trang_thai`,`thoigian_tao`,`tongtien_mat`,`tongtien_duoc`,`tongtien_khieunai`) VALUES
+('15','7','tự nhiên nó dc :v','','','','0','0000-00-00 00:00:00','0000-00-00 00:00:00','0','0','0','0','0','0','0');
+INSERT INTO `tbl_cauhoi` (`id`,`user_id`,`noi_dung`,`anh_minhhoa`,`tra_loi`,`anh_traloi`,`tien_cuoc`,`hen_gio`,`thoigian_traloi`,`luot_thich`,`luot_xem`,`trang_thai`,`thoigian_tao`,`tongtien_mat`,`tongtien_duoc`,`tongtien_khieunai`) VALUES
+('16','7','Lần này chắc được','','','','0','0000-00-00 00:00:00','0000-00-00 00:00:00','0','0','0','0','0','0','0');
+INSERT INTO `tbl_cauhoi` (`id`,`user_id`,`noi_dung`,`anh_minhhoa`,`tra_loi`,`anh_traloi`,`tien_cuoc`,`hen_gio`,`thoigian_traloi`,`luot_thich`,`luot_xem`,`trang_thai`,`thoigian_tao`,`tongtien_mat`,`tongtien_duoc`,`tongtien_khieunai`) VALUES
+('17','7','sao không được nữa ','','','','0','0000-00-00 00:00:00','0000-00-00 00:00:00','0','0','0','0','0','0','0');
 
 
 
@@ -330,12 +380,70 @@ INSERT INTO `tbl_level_tien` (`id`,`level_id`,`tien`) VALUES
 
 
 -- -------------------------------------------
+-- TABLE DATA tbl_like
+-- -------------------------------------------
+INSERT INTO `tbl_like` (`id`,`table_id`,`table_name`,`user_id`) VALUES
+('9','4','C','7');
+INSERT INTO `tbl_like` (`id`,`table_id`,`table_name`,`user_id`) VALUES
+('10','5','C','7');
+INSERT INTO `tbl_like` (`id`,`table_id`,`table_name`,`user_id`) VALUES
+('11','6','C','7');
+INSERT INTO `tbl_like` (`id`,`table_id`,`table_name`,`user_id`) VALUES
+('13','9','C','7');
+INSERT INTO `tbl_like` (`id`,`table_id`,`table_name`,`user_id`) VALUES
+('16','13','C','7');
+INSERT INTO `tbl_like` (`id`,`table_id`,`table_name`,`user_id`) VALUES
+('17','14','C','7');
+INSERT INTO `tbl_like` (`id`,`table_id`,`table_name`,`user_id`) VALUES
+('19','17','C','2');
+
+
+
+-- -------------------------------------------
+-- TABLE DATA tbl_tag
+-- -------------------------------------------
+INSERT INTO `tbl_tag` (`id`,`cauhoi_id`,`user_id`,`trangthai_chapnhan`,`thoigian_chapnhan`) VALUES
+('1','9','2','0','0000-00-00 00:00:00');
+INSERT INTO `tbl_tag` (`id`,`cauhoi_id`,`user_id`,`trangthai_chapnhan`,`thoigian_chapnhan`) VALUES
+('2','9','4','0','0000-00-00 00:00:00');
+INSERT INTO `tbl_tag` (`id`,`cauhoi_id`,`user_id`,`trangthai_chapnhan`,`thoigian_chapnhan`) VALUES
+('3','17','2','0','0000-00-00 00:00:00');
+
+
+
+-- -------------------------------------------
 -- TABLE DATA tbl_taikhoan
 -- -------------------------------------------
 INSERT INTO `tbl_taikhoan` (`id`,`user_id`,`tien_thang`,`tien_thua`,`tien_nap`,`tai_khoan`) VALUES
 ('1','7','0','0','0','100000');
 INSERT INTO `tbl_taikhoan` (`id`,`user_id`,`tien_thang`,`tien_thua`,`tien_nap`,`tai_khoan`) VALUES
 ('2','8','0','0','0','100000');
+
+
+
+-- -------------------------------------------
+-- TABLE DATA tbl_traloi
+-- -------------------------------------------
+INSERT INTO `tbl_traloi` (`id`,`cauhoi_id`,`user_id`,`languoi_duoctag`,`noi_dung`,`hinh_anh`,`trangthai_dungsai`,`thoigian_traloi`) VALUES
+('4','3','7','0','dc chua nao','','0','2014-11-30 18:27:22');
+INSERT INTO `tbl_traloi` (`id`,`cauhoi_id`,`user_id`,`languoi_duoctag`,`noi_dung`,`hinh_anh`,`trangthai_dungsai`,`thoigian_traloi`) VALUES
+('5','1','7','0','ok chưa','','0','2014-12-01 23:49:59');
+INSERT INTO `tbl_traloi` (`id`,`cauhoi_id`,`user_id`,`languoi_duoctag`,`noi_dung`,`hinh_anh`,`trangthai_dungsai`,`thoigian_traloi`) VALUES
+('6','5','7','0','sao lại thế nhể :3','','0','2014-12-01 23:50:27');
+INSERT INTO `tbl_traloi` (`id`,`cauhoi_id`,`user_id`,`languoi_duoctag`,`noi_dung`,`hinh_anh`,`trangthai_dungsai`,`thoigian_traloi`) VALUES
+('7','4','7','0','chắc được rồi ','','0','2014-12-01 23:52:06');
+INSERT INTO `tbl_traloi` (`id`,`cauhoi_id`,`user_id`,`languoi_duoctag`,`noi_dung`,`hinh_anh`,`trangthai_dungsai`,`thoigian_traloi`) VALUES
+('8','16','7','0','dm được chưa','','0','2014-12-03 23:17:59');
+INSERT INTO `tbl_traloi` (`id`,`cauhoi_id`,`user_id`,`languoi_duoctag`,`noi_dung`,`hinh_anh`,`trangthai_dungsai`,`thoigian_traloi`) VALUES
+('9','15','7','0','dc k ','','0','2014-12-03 23:23:46');
+INSERT INTO `tbl_traloi` (`id`,`cauhoi_id`,`user_id`,`languoi_duoctag`,`noi_dung`,`hinh_anh`,`trangthai_dungsai`,`thoigian_traloi`) VALUES
+('10','13','7','0','éo dc','','0','2014-12-03 23:24:34');
+INSERT INTO `tbl_traloi` (`id`,`cauhoi_id`,`user_id`,`languoi_duoctag`,`noi_dung`,`hinh_anh`,`trangthai_dungsai`,`thoigian_traloi`) VALUES
+('11','12','7','0','chắc dc rồi ','','0','2014-12-03 23:26:54');
+INSERT INTO `tbl_traloi` (`id`,`cauhoi_id`,`user_id`,`languoi_duoctag`,`noi_dung`,`hinh_anh`,`trangthai_dungsai`,`thoigian_traloi`) VALUES
+('12','17','7','0','chắc dc rồi ','','0','2014-12-03 23:27:29');
+INSERT INTO `tbl_traloi` (`id`,`cauhoi_id`,`user_id`,`languoi_duoctag`,`noi_dung`,`hinh_anh`,`trangthai_dungsai`,`thoigian_traloi`) VALUES
+('13','17','2','1','ê tag đây','','0','2014-12-03 23:29:19');
 
 
 

@@ -1,10 +1,15 @@
 <li class="media">
-	<img class="pull-left media-object img-32" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/people/avatar_004.jpg" alt="">
+	<?php 
+		if ($value->user != null) {
+			echo User::getAvatar($value->user,'pull-left media-object img-32');
+		}
+	?>
 	<div class="media-body">
-		<a href="#"><b>Naru Naru To</b></a> 
-		Đã trả lời thách đố này
+		<?php echo User::getTenDayDu($value->user)." "; 
+			echo $value->noi_dung;
+		?>
 		<div class="text-color-aaa">
-			<span>26 Tháng 10 lúc 15:30</span> <br />
+			<span><?php echo Traloi::ThoiGianTraLoi($value->thoigian_traloi); ?></span> <br />
 		</div>
 	</div>
 </li>
