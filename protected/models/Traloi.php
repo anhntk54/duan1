@@ -31,7 +31,7 @@ class Traloi extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('cauhoi_id, user_id, languoi_duoctag, noi_dung, hinh_anh, trangthai_dungsai, thoigian_traloi', 'required'),
+			array('cauhoi_id, user_id, languoi_duoctag, noi_dung, thoigian_traloi', 'required'),
 			array('cauhoi_id, user_id, languoi_duoctag, trangthai_dungsai', 'numerical', 'integerOnly'=>true),
 			array('hinh_anh', 'length', 'max'=>200),
 			// The following rule is used by search().
@@ -48,6 +48,7 @@ class Traloi extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'user'=> array(self::BELONGS_TO,'User','user_id'),
 		);
 	}
 
@@ -109,5 +110,40 @@ class Traloi extends CActiveRecord
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
+	}
+	public static function KiemTraCoDcXemCauTraLoiKhong($value,$id_user = '')
+	{
+		if ($id_user == '') {
+			if (!Yii::app()->user->isGuest) {
+				$id_user = Yii::app()->user->id;
+			}
+		}
+		$user = User::model()->findByPk($id_user);
+		if ($user != null) {
+			return true;
+		}
+		return false;
+	}
+	public static function KiemTraCoDcDangCauTraLoiKhong($value)
+	{
+		if (!Yii::app()->user->isGuest) {
+			$user = User::model()->findByPk(Yii::app()->user->id);
+			if ($user != null) {
+				$traloi = Traloi::model()->findByAttributes(array('user_id'=>$user->id,'cauhoi_id'=>$value->id));
+				if ($traloi == null) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	public static function ThoiGianTraLoi($value)
+	{
+		$str = '';
+		if ($value != null) {
+			//26 Tháng 10 lúc 15:30
+			$str = date('d',strtotime($value))." Tháng ".date('m',strtotime($value))." lúc ".date('H:i',strtotime($value));
+		}
+		return $str;
 	}
 }

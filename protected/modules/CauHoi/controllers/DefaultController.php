@@ -2,11 +2,11 @@
 
 class DefaultController extends Controller
 {
-	public function actionIndex()
-	{
-	   
-	   $this->render('index');
-	}
+    public function actionIndex()
+    {
+       
+       $this->render('index');
+    }
     
     public function actionCreate(){
         $model = new Cauhoi;
@@ -26,14 +26,14 @@ class DefaultController extends Controller
                 $img = $_POST['image'];
                 
                 if($type_image == 'jpg' || $type_image == 'jpeg'){
-    				$img = str_replace('data:image/jpeg;base64', '', $img);
-    			}
-    			if($type_image == 'png' || $type_image == 'PNG'){
-    				$img = str_replace('data:image/png;base64', '', $img);
-    			}
-    			if($type_image == 'gif' || $type_image == 'GIF'){
-    				$img = str_replace('data:image/gif;base64', '', $img);
-    			}
+                    $img = str_replace('data:image/jpeg;base64', '', $img);
+                }
+                if($type_image == 'png' || $type_image == 'PNG'){
+                    $img = str_replace('data:image/png;base64', '', $img);
+                }
+                if($type_image == 'gif' || $type_image == 'GIF'){
+                    $img = str_replace('data:image/gif;base64', '', $img);
+                }
                 
                 $img = str_replace(' ', '+', $img);
                 $_data = base64_decode($img);

@@ -123,4 +123,11 @@ class User extends CActiveRecord
 	{
 		return '<img src="'.Yii::app()->request->baseUrl.$value->avatar.'" class="'.$class.'" />';
 	}
+	public static function getTenDayDu($value,$class = '')
+	{
+		if ($value != null) {
+			return '<a href="#"><b>'.$value->ten_day_du.'</b></a>';
+		}
+		return '';
+	}
 }
