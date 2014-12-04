@@ -115,14 +115,20 @@ class User extends CActiveRecord
 	 * @param string $className active record class name.
 	 * @return User the static model class
 	 */
+     
+    /**
+    Chú ý không dùng statics nhớ. gặp một lỗi bên aegoal cái tác hại của nó mà không tỉnh à
+    **/
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
 	}
+    
 	public static function getAvatar($value,$class = 'img-circle img-120 img-responsive margin-auto')
 	{
 		return '<img src="'.Yii::app()->request->baseUrl.$value->avatar.'" class="'.$class.'" />';
 	}
+    
 	public static function getTenDayDu($value,$class = '')
 	{
 		if ($value != null) {
@@ -130,4 +136,15 @@ class User extends CActiveRecord
 		}
 		return '';
 	}
+    
+    public function getModel($id){
+        return User::model()->findByPk($id);
+    }
+    
+    public function getLevel($model){
+        $level = $model->level_id;
+        $model_lv = Level::model()->findByPk($level);
+        return $model_lv->ten;  
+    }
+    
 }
