@@ -138,14 +138,14 @@ class Cauhoi extends CActiveRecord
 	{
 		return parent::model($className);
 	}
-	public static function getHinhAnhMinhHoa($value,$class = 'img-responsive')
+	public function getHinhAnhMinhHoa($value,$class = 'img-responsive')
 	{
 		if ($value != null && $value->anh_minhhoa != '') {
 			return '<img src="'.Yii::app()->request->baseUrl.'/'.$value->anh_minhhoa.'" class="'.$class.'" />';
 		}
 		return '';
 	}
-	public static function KiemTraLikeCuaNguoiDung($value)
+	public function KiemTraLikeCuaNguoiDung($value)
 	{
 		$str = "Thích";
 		if (!Yii::app()->user->isGuest) {
@@ -159,14 +159,14 @@ class Cauhoi extends CActiveRecord
 		}
 		return $str;
 	}
-	public static function TongSoLuotLike($value)
+	public function TongSoLuotLike($value)
 	{
 		if ($value != null) {
 			return count($value->likes);
 		}
 		return 0;
 	}
-	public static function TongSoLuotTraLoi($value)
+	public function TongSoLuotTraLoi($value)
 	{
 		if ($value != null) {
 			return count($value->tralois);
