@@ -4,7 +4,7 @@
 		<div class="media form-group">
 			<?php 
 				if ($value->user != null) {
-					echo User::getAvatar($value->user,'pull-left media-object img-40');
+					echo User::model()->getAvatar($value->user,'pull-left media-object img-40');
 				}
 			?>
 			<div class="media-body">
@@ -18,9 +18,9 @@
 			</a>
 		</div>
 		<p><?php echo $value->noi_dung;?></p>
-        <p><?php echo Cauhoi::getHinhAnhMinhHoa($value); ?></p>
+        <p><?php echo Cauhoi::model()->getHinhAnhMinhHoa($value); ?></p>
 		<small>
-			<a class="margin-right cau_hoi_like"><?php echo Cauhoi::KiemTraLikeCuaNguoiDung($value); ?></a>
+			<a class="margin-right cau_hoi_like"><?php echo Cauhoi::model()->KiemTraLikeCuaNguoiDung($value); ?></a>
 			<a href="#" class="margin-right">Trả lời</a>
 			<a href="#">Chia sẻ</a>
 		</small>

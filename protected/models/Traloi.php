@@ -111,7 +111,7 @@ class Traloi extends CActiveRecord
 	{
 		return parent::model($className);
 	}
-	public static function KiemTraCoDcXemCauTraLoiKhong($value,$id_user = '')
+	public function KiemTraCoDcXemCauTraLoiKhong($value,$id_user = '')
 	{
 		if ($id_user == '') {
 			if (!Yii::app()->user->isGuest) {
@@ -124,7 +124,7 @@ class Traloi extends CActiveRecord
 		}
 		return false;
 	}
-	public static function KiemTraCoDcDangCauTraLoiKhong($value)
+	public function KiemTraCoDcDangCauTraLoiKhong($value)
 	{
 		if (!Yii::app()->user->isGuest) {
 			$user = User::model()->findByPk(Yii::app()->user->id);
@@ -137,7 +137,7 @@ class Traloi extends CActiveRecord
 		}
 		return false;
 	}
-	public static function ThoiGianTraLoi($value)
+	public function ThoiGianTraLoi($value)
 	{
 		$str = '';
 		if ($value != null) {

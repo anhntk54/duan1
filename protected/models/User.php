@@ -124,12 +124,12 @@ class User extends CActiveRecord
 		return parent::model($className);
 	}
     
-	public static function getAvatar($value,$class = 'img-circle img-120 img-responsive margin-auto')
+	public function getAvatar($value,$class = 'img-circle img-120 img-responsive margin-auto')
 	{
 		return '<img src="'.Yii::app()->request->baseUrl.$value->avatar.'" class="'.$class.'" />';
 	}
     
-	public static function getTenDayDu($value,$class = '')
+	public function getTenDayDu($value,$class = '')
 	{
 		if ($value != null) {
 			return '<a href="#"><b>'.$value->ten_day_du.'</b></a>';
@@ -144,7 +144,9 @@ class User extends CActiveRecord
     public function getLevel($model){
         $level = $model->level_id;
         $model_lv = Level::model()->findByPk($level);
-        return $model_lv->ten;  
+        if ($model_lv != null) {
+        	return $model_lv->ten;  
+        }
     }
     
 }

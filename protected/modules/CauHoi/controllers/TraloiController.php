@@ -27,7 +27,7 @@ class TraloiController extends Controller
 							if ($traloi->save()) {
 								echo json_encode(array(
 									'html'=>$this->renderPartial('create', array('value'=>$traloi),true),
-									'count'=>Cauhoi::TongSoLuotTraLoi($model),
+									'count'=>Cauhoi::model()->TongSoLuotTraLoi($model),
 									));
 							}
 						}

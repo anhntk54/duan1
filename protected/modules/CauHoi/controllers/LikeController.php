@@ -22,7 +22,7 @@ class LikeController extends Controller
 						$str = "Thích";
 						$like->delete();
 					}
-					echo json_encode(array('str'=>$str,'count'=>Cauhoi::TongSoLuotLike($model)));
+					echo json_encode(array('str'=>$str,'count'=>Cauhoi::model()->TongSoLuotLike($model)));
 				}
 			}
 		}
