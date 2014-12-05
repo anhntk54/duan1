@@ -59,7 +59,12 @@ function fileSelect(evt) {
             // if the file is not an image, continue
             if (!file.type.match('image.*')) {
                 alert("Ảnh không đúng định dạng. Bạn vui lòng chọn ảnh khác!");
-                continue;
+                //continue;
+                return false;
+            }
+            if(file.size >= 2000000){
+                 alert("Bạn chỉ được upload ảnh nhỏ hơn 2M. Bạn vui lòng chọn ảnh khác!");
+                 return false;
             }
             reader = new FileReader();
             reader.onloadstart = function(e) { console.log("Bắt đầu"); }
