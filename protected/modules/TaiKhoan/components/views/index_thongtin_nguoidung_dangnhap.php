@@ -1,6 +1,6 @@
 <div class="panel panel-default">
 	<div class="panel-body text-center">
-		<?php echo User::getAvatar($model); ?>
+		<?php echo User::model()->getAvatar($model); ?>
 		<h2 class="text-center"><?php echo $model->ten_day_du; ?></h2>
 		<p><?php 
 			if ($model->level != null) {

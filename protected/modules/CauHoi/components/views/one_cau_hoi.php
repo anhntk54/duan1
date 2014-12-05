@@ -1,3 +1,5 @@
+
+
 <div class="panel panel-default one_cau_hoi">
 	<input type="hidden" class="cauhoi_id" value="<?php echo $value->id; ?>">
 	<div class="panel-body">
@@ -8,7 +10,7 @@
 				}
 			?>
 			<div class="media-body">
-				<?php echo User::getTenDayDu($value->user); ?>
+				<?php echo User::model()->getTenDayDu($value->user); ?>
 				<small>
 					<span><i class="fa fa-clock-o"></i> 12:12:03</span>
 				</small>
@@ -29,8 +31,8 @@
 		<div class="form-group border-bottom">
 			<small class="text-color-666">
 				<a href="#">
-					<span class="margin-right"><i class="fa fa-comments"></i><span class="so-luot-tra-loi"><?php echo Cauhoi::TongSoLuotTraLoi($value); ?></span></span>
-					<span class="margin-right"><i class="fa fa-thumbs-o-up"></i> <span class="so-luot-like"><?php echo Cauhoi::TongSoLuotLike($value); ?></span></span>
+					<span class="margin-right"><i class="fa fa-comments"></i><span class="so-luot-tra-loi"><?php echo Cauhoi::model()->TongSoLuotTraLoi($value); ?></span></span>
+					<span class="margin-right"><i class="fa fa-thumbs-o-up"></i> <span class="so-luot-like"><?php echo Cauhoi::model()->TongSoLuotLike($value); ?></span></span>
 					<span class="margin-right"><i class="fa fa-share"></i> 3</span>
 				</a>
 			</small>

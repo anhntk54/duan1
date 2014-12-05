@@ -9,4 +9,5 @@
     <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/bootstrap.min.js"></script>
     <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery.textareaAutoResize.js"></script>
     <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/js.js"></script>
+    <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery.downCount.js"></script>
 </head>
