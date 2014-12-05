@@ -1,5 +1,3 @@
-
-
 <div class="panel panel-default one_cau_hoi">
 	<input type="hidden" class="cauhoi_id" value="<?php echo $value->id; ?>">
 	<div class="panel-body">
@@ -12,7 +10,20 @@
 			<div class="media-body">
 				<?php echo User::model()->getTenDayDu($value->user); ?>
 				<small>
-					<span><i class="fa fa-clock-o"></i> 12:12:03</span>
+					<span><i class="fa fa-clock-o"></i>
+                        <!--Thoi gian hen gio-->
+                        <span class="countdown<?php echo $value->id;?>">
+                            <span class="days">00</span>
+                            <span class="hours">00</span>
+                            <span class="minutes">00</span>
+                            <span class="seconds">00</span>     
+                            
+                            <?php 
+                            //$hengio = 48;
+                            //$nowdate = date("Y-m-d H:i:s");
+                            //echo  date('Y-m-d H:i:s', strtotime($nowdate . ' + '.$hengio.' hours'));?>                       
+                        </span>
+                    </span>
 				</small>
 			</div>
 			<a href="#" class="pull-right media-object text-color-666 angle-down">
@@ -40,3 +51,12 @@
 		<?php $this->widget("CauHoi.components.List_Cau_Tra_Loi",array('model'=>$value)); ?>
 	</div>
 </div>
+
+<script>
+ $('.countdown<?php echo $value->id;?>').downCount({
+            date: '<?php echo date("m/d/Y H:i:s", strtotime($value->hen_gio));?>',
+            offset: +7
+        }, function () {
+            $(".countdown<?php echo $value->id;?>").html("Đã hết giờ")
+        });
+</script>
