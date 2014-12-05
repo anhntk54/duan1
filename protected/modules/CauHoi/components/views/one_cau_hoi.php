@@ -14,8 +14,11 @@
                         <!--Thoi gian hen gio-->
                         <span class="countdown<?php echo $value->id;?>">
                             <span class="days">00</span>
+                            <span> : </span>
                             <span class="hours">00</span>
+                            <span> : </span>
                             <span class="minutes">00</span>
+                            <span> : </span>
                             <span class="seconds">00</span>     
                             
                             <?php 
