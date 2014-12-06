@@ -59,6 +59,7 @@ class Cauhoi extends CActiveRecord
 		return array(
 			'user'=> array(self::BELONGS_TO,'User','user_id'),
 			'tralois' =>array(self::HAS_MANY,'Traloi','cauhoi_id'),
+			'tags' =>array(self::HAS_MANY,'Tag','cauhoi_id'),
 			'likes' =>array(self::HAS_MANY,'Like','table_id','on'=>'table_name ="C"'),
 		);
 	}
@@ -158,6 +159,42 @@ class Cauhoi extends CActiveRecord
 			}
 		}
 		return $str;
+	}
+	public function CauHoiTomTat($value)
+	{
+		if ($value != null) {
+			return $value->noi_dung;
+		}
+		return '';
+	}
+	public function ThoiGianCauHoiTomTat($value)
+	{
+		if ($value != null) {
+			$t = strtotime(date("Y-m-d H:i:s",strtotime($value->hen_gio))) - strtotime(date("Y-m-d H:i:s"));
+			$h = floor($t/3600);
+			$i = floor(($t - $h * 3600)/60);
+			$s = $t - $h * 3600 - $i * 60;
+			if ($h < 10) {
+				$h = "0{$h}";
+			}
+			if ($i < 10) {
+				$i = "0{$i}";
+			}
+			if ($s < 10) {
+				$s = "0{$s}";
+			}
+			return "{$h}:{$i}:{$s}";
+		}
+		return '';
+	}
+	public function TyLeTraLoi($value)
+	{
+		if ($value != null) {
+			$tags = count($value->tags);
+			$tralois = count($value->tralois(array('condition'=>'languoi_duoctag = 1')));
+			return $tralois.'/'.$tags;
+		}
+		return 0;
 	}
 	public function TongSoLuotLike($value)
 	{

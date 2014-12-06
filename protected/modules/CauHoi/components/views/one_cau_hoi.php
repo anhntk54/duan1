@@ -3,9 +3,7 @@
 	<div class="panel-body">
 		<div class="media form-group">
 			<?php 
-				if ($value->user != null) {
-					echo User::model()->getAvatar($value->user,'pull-left media-object img-40');
-				}
+				echo User::model()->getAvatar($value->user,'pull-left media-object img-40');
 			?>
 			<div class="media-body">
 				<?php echo User::model()->getTenDayDu($value->user); ?>

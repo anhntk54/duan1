@@ -136,7 +136,13 @@ class User extends CActiveRecord
 		}
 		return '';
 	}
-    
+    public function getTenDayDuKhongLink($value,$class = '')
+	{
+		if ($value != null) {
+			return '<b>'.$value->ten_day_du.'</b>';
+		}
+		return '';
+	}
     public function getModel($id){
         return User::model()->findByPk($id);
     }
