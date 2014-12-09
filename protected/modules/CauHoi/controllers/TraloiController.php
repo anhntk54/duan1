@@ -36,4 +36,27 @@ class TraloiController extends Controller
 			}
 		}
 	}
+	public function actionChapNhan()
+	{
+		// cap nhat bang tag tuong ung voi user dang nhap
+		// 1 la tu choi, 2 la chap nhan
+		if (isset($_POST['cauhoi_id']) && isset($_POST['chapnhan'])) {
+			$cauhoi_id = $_POST['cauhoi_id'];
+			$chapnhan = $_POST['chapnhan'];
+			if (!Yii::app()->user->isGuest) {
+				$user = User::model()->findByPk(Yii::app()->user->id);
+				if ($user != null) {
+					$model = Cauhoi::model()->findByPk($cauhoi_id);
+					if ($model != null) {
+						$tag = Tag::model()->findByAttributes(array('cauhoi_id'=>$cauhoi_id,'user_id'=>$user->id));
+						if ($tag != null) {
+							$tag->trangthai_chapnhan = $chapnhan;
+							$tag->save(false);
+							echo "ok";
+						}
+					}
+				}
+			}
+		}
+	}
 }
