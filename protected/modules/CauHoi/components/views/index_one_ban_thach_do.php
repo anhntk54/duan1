@@ -1,15 +1,15 @@
 <li class="media border-bottom small">
-  <img class="pull-left media-object img-32" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/people/avatar_002.jpg" alt="">
+  <?php echo User::model()->getAvatar($value->user,'pull-left media-object img-32'); ?>
   <div class="media-body">
 	<a href="#" class="text-color-666">
-		<b>Triệu Nhữ</b> <i class="fa fa-caret-right"></i> 
-		Một con vịt xòe ra mấy cái cánh...
+		<?php echo User::model()->getTenDayDuKhongLink($value->user); ?> <i class="fa fa-caret-right"></i> 
+		<?php echo Cauhoi::model()->CauHoiTomTat($value); ?>
 	</a>
 	<div class="text-color-aaa">
-		<span class="margin-right"><i class="fa fa-clock-o"></i> 12:12:03</span>  <br />
-		<span class="margin-right"><i class="fa fa-comments"></i> 8/10</span>
-		<span class="margin-right"><i class="fa fa-comment"></i> 14</span>
-		<span class="margin-right"><i class="fa fa-thumbs-o-up"></i> 123</span>
+		<span class="margin-right"><i class="fa fa-clock-o"></i> <?php echo Cauhoi::model()->ThoiGianCauHoiTomTat($value); ?></span>
+		<span class="margin-right"><i class="fa fa-comments"></i> <?php echo Cauhoi::model()->TyLeTraLoi($value); ?></span>
+		<span class="margin-right"><i class="fa fa-comment"></i> <?php echo count($value->tralois); ?></span>
+		<span class="margin-right"><i class="fa fa-thumbs-o-up"></i> <?php echo Cauhoi::model()->TongSoLuotLike($value); ?></span>
 		<span class="margin-right"><i class="fa fa-share"></i> 3</span>
 	</div>
   </div>

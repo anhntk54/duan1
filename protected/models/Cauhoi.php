@@ -59,6 +59,7 @@ class Cauhoi extends CActiveRecord
 		return array(
 			'user'=> array(self::BELONGS_TO,'User','user_id'),
 			'tralois' =>array(self::HAS_MANY,'Traloi','cauhoi_id'),
+			'traloi' =>array(self::HAS_ONE,'Traloi','cauhoi_id'),
 			'tags' =>array(self::HAS_MANY,'Tag','cauhoi_id'),
 			'likes' =>array(self::HAS_MANY,'Like','table_id','on'=>'table_name ="C"'),
 		);

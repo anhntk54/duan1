@@ -4,7 +4,11 @@
 	</div>
 	<div class="panel-body">
 		<ul class="media-list media-list-scroll">
-		<?php $this->widget("CauHoi.components.Index_One_Ban_Tra_Loi"); ?>			
+			<?php 
+				foreach ($model as $value) {
+					$this->widget("CauHoi.components.Index_One_Ban_Tra_Loi",array('value'=>$value));
+				}
+			 ?>
 			
 		</ul>
 	</div>

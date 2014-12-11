@@ -22,6 +22,8 @@ class TraloiController extends Controller
 							$traloi->languoi_duoctag = 0;
 							$tag = Tag::model()->findByAttributes(array('cauhoi_id'=>$cauhoi_id,'user_id'=>$user->id));
 							if ($tag != null) {
+								$tag->trangthai_chapnhan = 2;
+								$tag->save();
 								$traloi->languoi_duoctag = 1;
 							}
 							if ($traloi->save()) {
@@ -51,6 +53,7 @@ class TraloiController extends Controller
 						$tag = Tag::model()->findByAttributes(array('cauhoi_id'=>$cauhoi_id,'user_id'=>$user->id));
 						if ($tag != null) {
 							$tag->trangthai_chapnhan = $chapnhan;
+							$tag->thoigian_chapnhan = date("Y-m-d H:i:s");
 							$tag->save(false);
 							echo "ok";
 						}

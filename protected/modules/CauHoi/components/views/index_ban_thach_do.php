@@ -1,10 +1,18 @@
 <div class="panel panel-default">
 	<div class="panel-heading">
-		<h3 class="panel-title">Bạn thách đố <span class="badge badge-danger pull-right">5</span></h3>
+		<h3 class="panel-title">Bạn thách đố 
+			<?php if($count > 0): ?>
+				<span class="badge badge-danger pull-right"><?php echo $count; ?></span>
+			<?php endif; ?>
+		</h3>
 	</div>
 	<div class="panel-body">
 		<ul class="media-list media-list-scroll">
-			<?php $this->widget("CauHoi.components.Index_One_Ban_Thach_Do"); ?>
+			<?php 
+				foreach ($model as $value) {
+					$this->widget("CauHoi.components.Index_One_Ban_Thach_Do",array('value'=>$value));
+				}
+			 ?>
 			
 		</ul>
 	</div>

@@ -137,6 +137,13 @@ class Traloi extends CActiveRecord
 		}
 		return false;
 	}
+	public function TraLoiTomTat($value)
+	{
+		if ($value != null) {
+			return $value->noi_dung;
+		}
+		return '';
+	}
 	public function ThoiGianTraLoi($value)
 	{
 		$str = '';
